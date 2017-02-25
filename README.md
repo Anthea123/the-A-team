@@ -18,13 +18,16 @@ Pour les tests unitaires avec CUnit sudo apt-get install libcunit1 libcunit1-doc
 Instructions d'utilisation
 
 Pour compiler et exécuter
+make 
+./lotA
 
-make ./ lotA
+pour tester l'absence de fuites de mémoire(Valgrind) 
+valgrind ./lotA
 
-pour tester l'absence de fuites de mémoire (Valgrind)m valgrind ./lotA
+pour générer la documentation (Doxygen) 
+doxygen Doxyfile
 
-pour générer la documentation (Doxygen) doxygen
 
-pour nettoyer le répertoire make clean
+pour nettoyer le répertoire
+make clean
 
-# the-A-team
