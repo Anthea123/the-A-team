@@ -306,10 +306,10 @@ void test_fill_file_grid(void)
 	fill_file_grid("a3", "b3", &grille3);
 	fill_file_grid("a4", "b4", &grille4);
 
-	CU_ASSERT(test_file("a1", 0) == 0);
-	CU_ASSERT(test_file("a2", 1) == 1);
-	CU_ASSERT(test_file("a3", 12) == 1);
-	CU_ASSERT(test_file("a4", 24) == 1);
+	CU_ASSERT(test_grid_file("a1", &grille1) == 0);
+	CU_ASSERT(test_grid_file("a2", &grille2) == 1);
+	CU_ASSERT(test_grid_file("a3", &grille3) == 1);
+	CU_ASSERT(test_grid_file("a4", &grille4) == 1);
 
 	free_grid(&grille1);
 	free_grid(&grille2);
