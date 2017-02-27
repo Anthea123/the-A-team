@@ -1,4 +1,4 @@
-#LotA#
+#LotA
 
 
 Toutes les fonctions de base et les commentaires doxygen sont contenues dans grid_color.c leurs prototypes sont dans grid_color.h.
@@ -35,4 +35,4 @@ doxygen Doxyfile
 Pour nettoyer le répertoire:
 make clean
 
-#Equipe : The A-Team#
+#Equipe : The A-Team
