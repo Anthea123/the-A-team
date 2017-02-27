@@ -4,7 +4,7 @@ CC=gcc
 CFLAGS=-std=c11 -Wall -Wextra -g 
 LDFLAGS=-lm -lcunit 
 
-all: lotA
+all: tests jeu
 
 unit_test.o : unit_test.c unit_test.h grid_color.h
 	${CC} ${CFLAGS} -c unit_test.c
@@ -15,10 +15,17 @@ grid_color.o: grid_color.c grid_color.h
 main.o: main.c  grid_color.h unit_test.h
 	${CC} ${CFLAGS} -c main.c
 
-lotA: grid_color.o main.o unit_test.o
+main_jeu.o: main_jeu.c grid_color.h
+	${CC} ${CFLAGS} -c main_jeu.c
+
+tests: grid_color.o main.o unit_test.o
+	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
+
+jeu: grid_color.o main_jeu.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 	
-doc: doxygen Doxyfile
+doc: Doxyfile
+	doxygen Doxyfile
 
 valgrind: valgrind --leak-check=yes ./lotA
 

@@ -6,14 +6,11 @@
 *	\date 25 Feb 2017
 */
 #include "grid_color.h"
-#include <math.h>
 
-/**
-*	\fn grid allocate_grid(int n)
-*	\brief alloue la mémoire pour une grille de taille n*n
-*	\param n la taille de la grille
-*	\return grid une grille vide alloué en mémoire
-*/
+/*	fonction pour allouer la mémoire pour une grille de taille n de structure grid  
+	si n>0 on alloue deux tableaux 2D le premier de caractères pour les couleurs
+	et le deuxième d'entiers pour l'appartenance à la tâche
+    sinon on renvoie un message d'erreur*/
 grid allocate_grid(int n)
 {
 
@@ -42,13 +39,12 @@ grid allocate_grid(int n)
 	
 	return grille;
 }
+/*	fonction pour initialiser une grille de structure grid par un tableau de caractères représentant 
+	les couleurs,
+	si n>0 on remplit les case de grille.array (le tableau de caractères) par les lettres de 
+	ce tableau aléatoirement (rand%6)
+	sinon on renvoie une grille avec une seule case avec le caractère 0 pour les tests*/
 
-/**
-*	\fn grid init_grid(int n)
-*	\brief initialise la grille de taille n*n à partir de valeurs aléatoires
-*	\param  n la taille de la grille
-*	\return grid une grille initialisée par des valeurs aléatoires
-*/
 grid init_grid(int n)
 {
 		grid grille;
@@ -73,18 +69,14 @@ grid init_grid(int n)
 		{ 
     	 	printf(" Taille non valide n <= 0\n");
     	 	grille = allocate_grid(1);
-    	 	grille.array[0][0] = '0';	
+    	 	grille.array[0][0] = '0';
+			grille.belong[0][0] = 0;
 		}
 
 		return grille;
 }
-
-/**
-*	\fn void free_grid(grid *grille)
-*	\brief libère la memoire occupée par une grille
-*	\param *grille adresse de la grille à libérer
-*	\return ne retourne rien, c'est une fonction de type void
-*/
+/*	fonction de libération de la mémoire occupée par une grille de type grid
+	on libère la mémoire occupée par les deux tableaux 2D de la grille*/
 void free_grid(grid *grille)
 {
 	int i;
@@ -102,57 +94,11 @@ void free_grid(grid *grille)
 	grille->array = NULL;
 	grille->belong = NULL;
 }
-
-/**
-*	\fn int test_is_color(char couleur)
-*	\brief teste si couleur est une des couleurs utilisées
-*	\param couleur la couleur à tester
-*	\return 1 si le couleur appartient à la liste des couleurs utilisées
-*	\return 0 si le couleur n'appartient pas à la liste des couleurs utilisées
-*/
-int test_is_color(char couleur)
-{
-
-	int i;
-	int test = 0;
-	char couleurs[6]={'B','V','R','J','M','G'};
-	
-	for(i = 0; i < 6; i = i+1)
-	{
-		if(couleur == couleurs[i])
-		{
-			test = 1;
-		}
-	}
-
-	return test;
-}
-
-/**
-*	\fn void set_grid(grid *grille,int x,int y,int couleur)
-*	\brief pour modifier la grille
-*	\param *grille adresse de la grille pour accéder et modifier
-*	simplement ses variables
-*	\param x abscisse de la case à modifier
-*	\param y ordonnée de la case à modifier
-*	\param couleur la nouvelle couleur
-*	\return une fonction de type void
-*/
-void set_grid(grid *grille,int x,int y,char couleur) 
-{
-	if(test_is_color(couleur))
-	{
-		grille->array[x][y] = couleur;
-	}
-}
-
-/*
-*	\fn void fill_file(char name_file[], int n)
-*	\brief pour remplir un fichier avec des charactères aléatoires
-*	\param name_file nom du fichier
-*	\param n nombre de charactères à générer
-*	\return ne retourne rien fonction de type void
-*/
+/*	fonction pour remplir un fichier name_file par n*n caractères pris du tableau couleurs[6]
+	si n>0 on ouvre le fichier en mode écriture(création s'il n'existe pas) puis on le remplit 
+	aléatoirement par les caractères de couleurs[6], on ferme le fichier pour éviter les fuites 
+	mémoire
+	sinon on renvoie un message d'erreur*/
 void fill_file(char name_file[], int n)
 {
 
@@ -161,7 +107,7 @@ void fill_file(char name_file[], int n)
 	char couleurs[6]={'B','V','R','J','M','G'};
 
 	if(n > 0){
-		FILE * f =fopen(name_file, "w+");
+		FILE * f =fopen(name_file, "w");
 		if(f){
 
 			srand(time(NULL));
@@ -178,13 +124,11 @@ void fill_file(char name_file[], int n)
 		printf("taille non valide\n");
 	}
 }
+/*	fonction pour compter le nombre de caractères (compteur) dans un fichier name_file 
+	compteur est initialisé à 0 et tant qu'on lit des caractères (a) on l'incrémente
+	on ferme le fichier 
+	on retourne le compteur*/
 
-/*
-*	\fn int count_file(char name_file[])
-*	\brief compte le nombre de caractères dans un fichier implémenté par fill_file
-*	\param name_file[] le nom du fichier
-*	\return le nombre de caractères contenus dans le fichier implémenté à l'aide de fill_file
-*/
 int count_file(char name_file[])
 {
 
@@ -202,14 +146,15 @@ int count_file(char name_file[])
 
 	return compteur;
 }
+/* fonction pour initialiser une grille(son adresse passé en paramètre) à partir d'un fichier name_file
+	on compte le nombre de caractères dans le fichier avec count_file
+	on ouvre le fichier en mode lecture
+	si le fichier existe et si le nombre de caractères de ce fichier est supérieur ou égale à la taille
+	de la grille on remplit la grille.array par les caractères du fichier
+	sinon on renvoie un message d'erreur et on remplit grille.array par des 0
+	grille.array est remplie par des 0 comme précédemment
 
-/*
-*	\fn void init_grid_file(char name_file[], grid *grille)
-*	\brief pour remplir une grille à partir d'un fichier
-*	\param name_file nom du fichier
-*	\param *grille adresse de la grille
-*	\return ne retourne rien fonction de type void
-*/
+	sinon si le fichier n'existe pas on renvoie un message d'erreur*/
 void init_grid_file(char name_file[], grid *grille)
 {
 
@@ -258,15 +203,12 @@ void init_grid_file(char name_file[], grid *grille)
 		printf("le fichier ne peut pas être ouvert\n");
 	}
 }
-
-/*
-*	\fn void fill_file_grid(char name_file_array[], char name_file_belong[], grid* grille)
-*	\brief pour remplir un fichier avec les charactères contenus dans le tableau array de la grille et un autre fichier avec les entiers contenus dans le tableau belong de la grille
-*	\param name_file_array nom du fichier à remplir avec les caractères
-*	\param name_file_belong nom du fichier à remplir avec les entiers
-*	\param n nombre de charactères à générer
-*	\return ne retourne rien fonction de type void
-*/
+/* fonction pour mettre le contenu d'une grille (de ses deux tableaux) dans deux fichiers 
+	distincts name_file_array[] et name_file_belong[]
+	on ouvre les deux fichiers en écriture et si la taille de la grille est valide on les 
+	imprime dans les fichiers
+	sinon on renvoie un message d'erreur
+	on ferme les deux fichiers à la fin pour ne pas avoir de fuites*/
 void fill_file_grid(char name_file_array[], char name_file_belong[], grid* grille){
 
 	int i, j, n;
@@ -302,13 +244,7 @@ void fill_file_grid(char name_file_array[], char name_file_belong[], grid* grill
 		printf("le fichier ne peut pas être ouvert\n");
 	}
 }
-
-/**
-*	\fn void grid_print(grid *grille)
-*	\brief pour afficher une grille
-*	\param *grille adresse de la grille à afficher
-*	\return une fonction de type void
-*/
+/*	fonction d'affichage de la grille */
 void grid_print(grid *grille)
 {
 	int i,j;
@@ -323,43 +259,37 @@ void grid_print(grid *grille)
 	}
   printf("\n");
 }
-
-/**
-	\fn int test_same_colour(grid *grille)
-	\brief teste si toutes les cases de la grille ont la même couleur
-	\param *grille adresse de la grille à tester
-	\return retourne 1 si les cases ont toutes la même couleur et 0 sinon
-*/
-
-int test_same_colour(grid *grille)
+/* fonction pour tester qu'une couleur passée en paramètres est bien une des couleurs de couleurs[6]
+	le resultat est 1 si la couleur appartient à couleurs[6]
+	et 0 sinon*/
+int test_is_color(char couleur)
 {
-	int i, j;
-	int test;
-	test = 1;
 
-	for(i = 0; i < grille->size; i = i+1)
+	int i;
+	int test = 0;
+	char couleurs[6]={'B','V','R','J','M','G'};
+	
+	for(i = 0; i < 6; i = i+1)
 	{
-		for(j = 0; j < grille->size; j = j+1)
+		if(couleur == couleurs[i])
 		{
-			if(grille->array[i][j] != grille->array[0][0])
-			{
-				test = 0;
-			}
+			test = 1;
 		}
 	}
+
 	return test;
 }
-
-/*
-	\fn detect_flood(grid *grille)
-	\brief identifie la tâche en se basant sur l'algorithme de remplissage par diffusion
-	\param *grille adresse de la grille 
-	\param x abscisse de l'origine de la tâche
-	\param y ordonnée de l'origine de la tâche
-	\param couleur couleur de l'origine de la tâche
-	\return void c'est une fonction de type void
-*/
-
+/* fonction qui change la couleur d'une case de la grille (grille.array) si les coordonnées
+	passées en paramètres sont valides et si la couleur désirée appartient à couleurs[6]*/
+void set_grid(grid *grille,int x,int y,char couleur) 
+{
+	if(test_is_color(couleur) && x >= 0 && x < grille->size && y >= 0 && y < grille->size)
+	{
+		grille->array[x][y] = couleur;
+	}
+}
+/* identification de la composante 4-connexe avec recursivité inspirée de l'algorithme de remplissage 
+	par diffusion*/
 void detect_flood(grid *g,int x,int y,char couleur)
 {
 	if(g->array[x][y]==couleur && g->belong[x][y]==0)
@@ -383,14 +313,9 @@ void detect_flood(grid *g,int x,int y,char couleur)
 		}
 	}
 }
-
-/*
-	\fn change_color(grid *grille, char couleur)
-	\brief change la couleur des cases appartenant à la tâche par la couleur entrée en paramètre
-	\param *grille adresse de la grille 
-	\param couleur la nouvelle couleur à étaler
-	\return void c'est une fonction de type void
-*/
+/* changement de couleur de la composante 4-connexe d'une grille g par la couleur passée en paramètres
+	si la couleur est valide et si la taille de la grille est valide et que la case courante (i,j)
+	appartient à la composante 4-connexe g->belong[i][j] == 1 on change sa couleur*/
 void change_color(grid *g,char couleur)
 { 
 	int n = g->size;
@@ -412,13 +337,7 @@ void change_color(grid *g,char couleur)
 		}
 	}
 }
-
-/*
-	\fn refresh_grid(grid *g)
-	\brief remet à 0 le tableau d'appartenance à la tâche
-	\param *grille adresse de la grille 
-	\return void c'est une fonction de type void
-*/
+/* remise des appartenances à la composante 4-connexe à 0*/
 void refresh_grid(grid *g)
 {
 	int n=g->size;
@@ -430,4 +349,25 @@ void refresh_grid(grid *g)
 			g->belong[i][j]=0;
 		}
 	}   
+}
+/* fonction pour tester si toutes les cases d'une grille(adresse passée en paramètres) sont de la 
+	même couleur, on déclare une variable test  initialisée à 0 et qui prend 1 si une des cases est 
+	de culeur différente*/
+int test_same_colour(grid *grille)
+{
+	int i, j;
+	int test;
+	test = 1;
+
+	for(i = 0; i < grille->size; i = i+1)
+	{
+		for(j = 0; j < grille->size; j = j+1)
+		{
+			if(grille->array[i][j] != grille->array[0][0])
+			{
+				test = 0;
+			}
+		}
+	}
+	return test;
 }
