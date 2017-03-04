@@ -1,4 +1,4 @@
-#include "struct.h"
+#include "grid_color.h"
 #include <SDL/SDL.h>
 #include <SDL/SDL_ttf.h>
 
