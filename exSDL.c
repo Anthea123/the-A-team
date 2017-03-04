@@ -74,17 +74,18 @@ void printcouleurs(SDL_Surface *ecran){
 }
 
 void jouer(SDL_Surface *ecran,grid g,char c){
-	identiftache(g,0,0,g.array[0][0]);
-	changecolor(g,c);
+	detect_flood(&g,0,0,g.array[0][0]);
+	change_color(&g,c);
 	printgrille(ecran,g);
-	refreshgrille(g);
+	refresh_grid(&g);
 }
 
 
 
 
-int main(int argc, char *argv[]) {
-	grid g;int size;
+int main() {
+	grid g;
+	int size;
 	printf("Entrer la taille du grille ");
 	scanf("%d",&size);
 	g=init_grid(size);
@@ -101,7 +102,7 @@ int main(int argc, char *argv[]) {
   }
 	if(TTF_Init() == -1){
 		fprintf(stderr, "Erreur d'initialisation de TTF_Init : %s\n", TTF_GetError());
-    exit(EXIT_FAILURE);
+    	exit(EXIT_FAILURE);
 	}
 
 
