@@ -27,7 +27,9 @@ jeu: grid_color.o main_jeu.o
 doc: Doxyfile
 	doxygen Doxyfile
 
-valgrind: valgrind --leak-check=yes ./lotA
+valgrind: valgrind --leak-check=yes ./jeu
+	  valgrind --leak-check=yes ./tests
+		
 
 clean:
 	rm grid_color.o main.o
