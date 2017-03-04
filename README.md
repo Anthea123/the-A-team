@@ -27,6 +27,9 @@ Pour la documentation doxygen:
 Pour les tests unitaires, la librairie CUnit est nécessaire:
 `sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev`
 
+Pour l'interface graphique SDL:
+`sudo apt-get install libsdl1.2-dev libsdl-gfx1.2-dev libsdl-ttf2.0-dev libfreeimage-dev`
+
 ###Instructions d'utilisation
 
 Pour compiler et exécuter les tests unitaires:
