@@ -4,7 +4,7 @@
 
     Feel free to customize this file to suit your needs
 */
-
+#include "struct.h"
 #ifndef _SDLMain_h_
 #define _SDLMain_h_
 
