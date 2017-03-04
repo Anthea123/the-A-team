@@ -12,8 +12,6 @@
 * main_jeu.c : Contient la boucle de jeu en mode graphique
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
 * Makefile : Permet de générer les exécutables et la documentation
-* same_color : Définit une grille dont toutes les cases ont la même couleur
-* grille1, grille2, grille3 et grille4, et belong1, belong2, belong3 et belong4 : Définissent les grilles avec des tâches, et les tâches
 * resultat-valgrind: Contient les résultats de Valgrind pour les deux exécutables
 
 Ces derniers fichiers sont nécessaires pour l'exécution des tests unitaires
