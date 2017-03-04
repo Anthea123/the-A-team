@@ -22,29 +22,50 @@ int main()
 	grid g;
 	int nbr_mvm=0;
 	char c='U';
+	int nbr_coup=0;
 
 	printf("Entrer la taille de la grille ");
 	scanf("%d",&size);
+	getchar();
 
-	g=init_grid(size);
-	
-	do{
-		grid_print(&g);
-		detect_flood(&g,0,0,g.array[0][0]);
-		printf("Entrer une couleur ");
-		scanf("%c",&c);
-		if(!test_is_color(c))
-		{
-			printf("Couleur non valide \n");
-			break;
-		}
-		change_color(&g,c);
-		refresh_grid(&g);
-		nbr_mvm++;
-	}while(!test_same_colour(&g));
+	if (size > 0)
+	{
 
+				printf("Entrer le nombre de coup autorisé\n ");
+				scanf("%d",&nbr_coup);
+				getchar();
+
+				g=init_grid(size);
+				
+				do{
+					grid_print(&g);
+					detect_flood(&g,0,0,g.array[0][0]);
+					printf("Entrer une couleur ");
+					scanf("%c",&c);
+					getchar();
+					nbr_coup--;
+					
+					if(!test_is_color(c))
+					{
+						printf("Couleur non valide \n");
+						break;
+					}
+					change_color(&g,c);
+					refresh_grid(&g);
+					nbr_mvm++;
+					printf("Il vous reste %d coups\n", nbr_coup);
+				}while(!test_same_colour(&g) && nbr_coup > 0);
+
+	}
 	grid_print(&g);
-	printf("Vous avez resolu la grille en %d mouvements ",nbr_mvm);
+	if(nbr_mvm <= nbr_coup)
+	{
+		printf("Victoire : Vous avez resolu la grille en %d mouvements\n",nbr_mvm);
+	}
+	else 
+	{
+		printf("Vous avez perdu\n");
+	}
 
 	free_grid(&g);
 
