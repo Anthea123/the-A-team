@@ -56,6 +56,3 @@ Toutes les fonctions et leurs conceptions sont détaillées dans le rapport
 
 Ces derniers fichiers sont nécessaires pour l'exécution des tests unitaires
 
-Tous les commentaires au format doxygen sont mis dans les headers pour éviter la duplication dans la documentation
-D'autres commentaires normaux sont inclus dans les fichiers sources
-Toutes les fonctions et leurs conceptions sont détaillées dans le rapport 
