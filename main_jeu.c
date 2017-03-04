@@ -19,55 +19,72 @@ int main()
 { 
 
 	int size;
+	int coups_restants;
+	int nbr_mvm = 0;
+	int test_quit = 0;
 	grid g;
-	int nbr_mvm=0;
-	char c='U';
-	int nbr_coup=0;
 
-	printf("Entrer la taille de la grille ");
+	printf("Entrer la taille de la grille:\n");
 	scanf("%d",&size);
 	getchar();
 
-	if (size > 0)
+	if(size > 0)
 	{
+		printf("Entrer le nombre de coups:\n");
+		scanf("%d", &coups_restants);
 
-				printf("Entrer le nombre de coup autorisé\n ");
-				scanf("%d",&nbr_coup);
-				getchar();
+		g=init_grid(size);
 
-				g=init_grid(size);
-				
-				do{
-					grid_print(&g);
-					detect_flood(&g,0,0,g.array[0][0]);
-					printf("Entrer une couleur ");
-					scanf("%c",&c);
-					getchar();
-					nbr_coup--;
-					
-					if(!test_is_color(c))
-					{
-						printf("Couleur non valide \n");
-						break;
-					}
-					change_color(&g,c);
-					refresh_grid(&g);
-					nbr_mvm++;
-					printf("Il vous reste %d coups\n", nbr_coup);
-				}while(!test_same_colour(&g) && nbr_coup > 0);
+		grid_print(&g);
+		detect_flood(&g,0,0,g.array[0][0]);
+		
+		while(!test_same_colour(&g) && coups_restants > 0 && !test_quit){
+			
+			printf("Entrer une couleur:\n");
+			scanf("%c", &c);
+			c = getchar();
 
+			while(!test_is_color(c) && c != 'Q'){
+				printf("Entrer une couleur:\n");
+				scanf("%c", &c);
+				c = getchar();
+			}
+			if(c != 'Q'){
+				change_color(&g,c);
+				refresh_grid(&g);
+				nbr_mvm = nbr_mvm+1;
+				coups_restants = coups_restants-1;
+				grid_print(&g);
+				printf("Il vous reste %d coups\n", coups_restants);
+				detect_flood(&g,0,0,g.array[0][0]);
+			}
+			else{
+				test_quit = 1;
+			}
+			
+		}
+	
+
+		grid_print(&g);
+		
+		if(coups_restants >= 0 && !test_quit)
+		{
+			printf("Victoire! Vous avez resolu la grille en %d mouvements \n",nbr_mvm);
+		}
+		else
+		{
+			if(test_quit == 1)
+			{
+				printf("Au revoir!");
+			}
+			else
+			{
+				printf("Vous avez perdu");
+			}
+		}
+
+		free_grid(&g);
 	}
-	grid_print(&g);
-	if(nbr_mvm <= nbr_coup)
-	{
-		printf("Victoire : Vous avez resolu la grille en %d mouvements\n",nbr_mvm);
-	}
-	else 
-	{
-		printf("Vous avez perdu\n");
-	}
-
-	free_grid(&g);
 
 	return 0;
 }
