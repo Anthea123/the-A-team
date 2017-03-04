@@ -17,7 +17,6 @@
 * Makefile : Permet de générer les exécutables et la documentation
 * resultat-valgrind: Contient les résultats de Valgrind pour les deux exécutables
 
-Ces derniers fichiers sont nécessaires pour l'exécution des tests unitaires
 
 ###Instructions d'installation
 
@@ -55,5 +54,5 @@ Tous les commentaires au format doxygen sont mis dans les headers pour éviter l
 D'autres commentaires normaux sont inclus dans les fichiers sources
 Toutes les fonctions et leurs conceptions sont détaillées dans le rapport 
 
-Ces derniers fichiers sont nécessaires pour l'exécution des tests unitaires
+
 
