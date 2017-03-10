@@ -4,7 +4,8 @@
 /*	on demande à l'utilisateur de saisir une couleur , si celle ci n'est pas valide et 
 	tant que l'utilisateur ne quitte pas avec 'Q' on lui redemande de sasir une couleur
 	valide*/
-char get_colour(){
+char get_colour()
+{
 	char c;
 	char tmp[3];
 	
@@ -23,7 +24,8 @@ char get_colour(){
 
 /*	on demande à l'utilisateur de saisir une taille de la grille tant que la taille n'est pas valide
 	c-à-d supérieure strictement à 1 on lui redemande de saisir une taille valide*/
-int get_size(){
+int get_size()
+{
     int s;
 
     printf("Entrer la taille de la grille:\n");
@@ -73,7 +75,8 @@ void turn(int *coups_restants, int *nbr_mvm, grid *g, char c)
 /*	si la grille est de couleur unie -> Victoire
 	sinon si l'utilisateur quitte au milieu de la partie -> Au revoir
 	sinon l'utilisateur perd*/
-void check(grid *g, int test_quit, int nbr_mvm){
+void check(grid *g, int test_quit, int nbr_mvm)
+{
 	if(test_same_colour(g))
 	{
 		printf("Victoire! Vous avez resolu la grille en %d mouvements \n",nbr_mvm);
