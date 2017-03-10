@@ -6,7 +6,9 @@
 * loop_game.c :  Contient les fonctions de base pour la boucle de jeu en mode texte
 * loop_game.h : Contient les prototypes de loop_game.c avec les commentaires en format Doxygen
 * main_jeu.c : Contient la boucle de jeu "game" en mode texte
-* exSDL.c :Contient la boucle de jeu en mode graphique 
+* SDL.c : Contient les fonctions de base pour le jeu en mode graphique 
+* SDL.h : Contient les prototypes et les commentaires Doxygen des fonctions de base du jeu en mode graphique
+* Jeu.c : Contient la boucle de jeu en mode graphique 
 * grid_color.c : Contient toutes les fonctions de base
 * grid_color.h : Contient les prototypes des fonctions du module grid_color et leurs commentaires Doxygen
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
@@ -30,7 +32,7 @@ Pour l'interface graphique SDL:
 
 Pour compiler et exécuter la boucle de jeu en mode graphique:
 `make
-./exSDL
+./Jeu
 
 
 Pour compiler et exécuter la boucle de jeu en mode texte:
@@ -38,7 +40,7 @@ Pour compiler et exécuter la boucle de jeu en mode texte:
 ./jeu_texte
 
 Pour tester l'absence de fuites de mémoire (Valgrind):
-`valgrind ./exSDL
+`valgrind ./Jeu
 valgrind ./jeu_texte`
 
 Pour générer la documentation (Doxygen):
