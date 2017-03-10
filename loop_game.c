@@ -29,7 +29,7 @@ int get_size(){
     printf("Entrer la taille de la grille:\n");
 	scanf("%d",&s);
 	
-	while(s < 1)
+	while(s <= 1)
 	{
 		printf("Entrer la taille de la grille:\n");
 		scanf("%d", &s);
