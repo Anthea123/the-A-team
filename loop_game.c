@@ -109,12 +109,12 @@ void game(){
 	 
         coups_restants = get_nombre_coups();
 
-		g = init_grid(size);
+	g = init_grid(size);
 
-		grid_print(&g);
-		detect_flood(&g, 0, 0, g.array[0][0]);
+	grid_print(&g);
+	detect_flood(&g, 0, 0, g.array[0][0]);
 		
-		while(!test_same_colour(&g) && coups_restants > 0 && !test_quit){
+	while(!test_same_colour(&g) && coups_restants > 0 && !test_quit){
 			
             c = get_colour();
 
@@ -124,10 +124,10 @@ void game(){
 			else{
 				test_quit = 1;
 			}
-		}
+	}
 		
-		check(&g, test_quit, nbr_mvm);
+	check(&g, test_quit, nbr_mvm);
 
-		free_grid(&g);
+	free_grid(&g);
 	
 }
