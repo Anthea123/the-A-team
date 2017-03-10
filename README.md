@@ -50,8 +50,9 @@ Pour nettoyer le répertoire:
 `make clean`
 ###Instructions d'utilisation du Jeu en mode graphique 
 
-Pour le Jeu en mode graphique pour sélectionner un choix du menu on utilise les fleches haut et bas du clavier et pour choisir la taille on utilise les fleches gauche et droite et puis Espace pour selectionner notre choix, on choisit ensuite la couleur avec le curseur, et pour rejouer une nouvelle fois on appuie sur Espace sinon pour quitter
-on selectionne "Q" au clavier.
+Pour le Jeu en mode graphique pour sélectionner un choix du menu on utilise les fleches haut et bas du clavier et pour choisir la taille on utilise les fleches gauche et droite et puis Espace pour selectionner notre choix, on choisit ensuite la couleur avec le curseur, et pour rejouer une nouvelle fois on appuie sur Espace sinon pour quitter on appuie sur echap au clavier.
+
+###Instructions de documentation
 
 Tous les commentaires au format doxygen sont mis dans les headers pour éviter la duplication dans la documentation
 D'autres commentaires normaux sont inclus dans les fichiers sources
