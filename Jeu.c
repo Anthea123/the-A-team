@@ -35,7 +35,7 @@ int main()
 				 	case SDL_QUIT: return 0;
 				 	case SDL_KEYDOWN: ///Si une touche à été appuyée
 						 switch(touche.key.keysym.sym){
-                     			case SDLK_DOWN: {fleche++;dessinerfleche(ecran,fleche);break;}
+                     					case SDLK_DOWN: {fleche++;dessinerfleche(ecran,fleche);break;}
 						        case SDLK_UP: {fleche--;dessinerfleche(ecran,fleche);break;}
 						        case SDLK_RIGHT: {switch(fleche%3){case 0 : {size++;afficherMenu(ecran,size,nbcoups);break;}case 1 : {	nbcoups++;afficherMenu(ecran,size,nbcoups);break;}}break;}
 						        case SDLK_LEFT: {switch(fleche%3){	case 0 : {if(size>2){size--;}afficherMenu(ecran,size,nbcoups);break;}case 1 : {if(nbcoups>1){nbcoups--;}afficherMenu(ecran,size,nbcoups);break;}}break;}
