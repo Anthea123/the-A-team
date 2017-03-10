@@ -29,17 +29,18 @@ Pour l'interface graphique SDL:
 
 ###Instructions d'utilisation
 
-Pour compiler et exécuter les tests unitaires:
-`make 
-./tests`
-
-Pour compiler et exécuter la boucle de jeu:
+Pour compiler et exécuter la boucle de jeu en mode graphique:
 `make
-./jeu`
+./exSDL
+
+
+Pour compiler et exécuter la boucle de jeu en mode texte:
+`make
+./main_jeu
 
 Pour tester l'absence de fuites de mémoire (Valgrind):
-`valgrind ./tests
-valgrind ./jeu`
+`valgrind ./exSDL
+valgrind ./main_jeu`
 
 Pour générer la documentation (Doxygen):
 `doxygen Doxyfile`
