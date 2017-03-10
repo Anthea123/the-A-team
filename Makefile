@@ -21,8 +21,11 @@ exSDL: grid_color.o exSDL.o #unit_test.o
 main_jeu.o: main_jeu.c grid_color.h
 	${CC} ${CFLAGS} -c main_jeu.c
 
-jeu_texte: main_jeu.o grid_color.o
+jeu_texte: main_jeu.o loop_game.o grid_color.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 
+loop_game.o: loop_game.c loop_game.h grid_color.h
+	${CC} ${CFLAGS} -c loop_game.c
+
 clean:
-	rm grid_color.o main.o
+	rm *.o

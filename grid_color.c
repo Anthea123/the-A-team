@@ -273,7 +273,7 @@ int test_is_color(char couleur)
 	{
 		if(couleur == couleurs[i])
 		{
-			test = 1;
+			return 1;
 		}
 	}
 
