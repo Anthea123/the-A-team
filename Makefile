@@ -6,8 +6,6 @@ LDFLAGS=-lm -lcunit
 
 all: Jeu jeu_texte
 
-#unit_test.o : unit_test.c unit_test.h struct.h
-#	${CC} ${CFLAGS} -c unit_test.c
 
 grid_color.o: grid_color.c grid_color.h
 	${CC} ${CFLAGS} -c grid_color.c
@@ -21,12 +19,15 @@ Jeu.o: Jeu.c SDL.h grid_color.o
 
 Jeu:grid_color.o SDL.o Jeu.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS} -lSDL -lSDL_ttf
-
-main_jeu.o: main_jeu.c grid_color.h
+	
+loop_game.o: loop_game.c loop_game.h grid_color.h
+	${CC} ${CFLAGS}  -c loop_game.c
+	
+main_jeu.o: main_jeu.c grid_color.h loop_game.h
 	${CC} ${CFLAGS}  -c main_jeu.c
 
-jeu_texte: main_jeu.o grid_color.o
+jeu_texte: main_jeu.o grid_color.o loop_game.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 
 clean:
-	rm grid_color.o Jeu.o main_jeu.o
+	rm *.o
