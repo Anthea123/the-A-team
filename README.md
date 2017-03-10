@@ -3,12 +3,11 @@
 ##The A-Team
 
 ### Fichiers inclus
-* exSDL.c : 
+* exSDL.c :Contient la boucle de jeu en mode graphique 
 * SDLMain.m :
 * SDLMain.h :
 * test.c : Contient la définition des suites de tests unitaires et permet de générer l'exécutable tests
 * main_jeu.c : Contient la boucle de jeu en mode texte
-* main_jeu_SDL.c : Contient la boucle de jeu en mode graphique
 * grid_color.c : Contient toutes les fonctions de base
 * grid_color.h : Contient les prototypes des fonctions du module grid_color et leurs commentaires Doxygen
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
