@@ -1,3 +1,15 @@
+
+
+
+
+/**
+*	\file SDL.h
+*	\brief prototypes des fonctions et structures nécessaires pour l'exécution du jeu en mode graphique
+*	\author Loubna Anthea Abdellah Bader
+*	\version 3.0
+*	\date 10 Mars 2017
+*/
+
 #ifndef SDL_H
 #define SDL_H
 
@@ -21,7 +33,7 @@
 void drawRectangle(SDL_Surface *ecran, int px, int py, int size, int r, int g, int b);
 /**
 *	\fn fillScreen(SDL_Surface *ecran, int r, int g, int b)
-*	\brief permet de remplisser entierement une surface sdl par une couleur RGB
+*	\brief permet de remplir entierement une surface sdl par une couleur RGB
 *	\param *ecran adresse de l'ecran
 *	\param r,g,b la couleur du surface
 *	\return void c'est une fonction de type void
@@ -45,7 +57,7 @@ void printgrille(SDL_Surface *ecran,grid g);
 void printcouleurs(SDL_Surface *ecran);
 /**
 *	\fn jouer(SDL_Surface *ecran,grid g,char c)
-*	\brief permet de changer la couleur de la grille a chaque fois qu'on joue une couleur parmi les 7 a partir d'un caractere de la grille g
+*	\brief permet de changer la couleur de la grille à chaque fois qu'on joue une couleur parmi les 7 à partir d'un caractère de la grille g
 *	\param *ecran adresse de l'ecran
 *	\param g grille
 *	\param char c la couleur joue
@@ -54,11 +66,11 @@ void printcouleurs(SDL_Surface *ecran);
 void jouer(SDL_Surface *ecran,grid g,char c);
 /**
 *	\fn  afficherMenu(SDL_Surface *ecran,int size,int nbcoups)
-*	\brief permet d'afficher le menu constitue du choix de la taille et le nombre de coups autorsisees et une option de QUIT
+*	\brief permet d'afficher le menu constitué du choix de la taille et le nombre de coups autorisées et une option de QUIT
 *	\param *ecran adresse de l'ecran
 *	\param g grille
 *	\param size taille que l'utilisateur veut choisir pour la grille
-*	\param nbcoups le nombre de coups que l'utilisateuer veut choisir pour la grille
+*	\param nbcoups le nombre de coups que l'utilisateur veut choisir pour la grille
 *	\return void c'est une fonction de type void
 */
 void afficherMenu(SDL_Surface *ecran,int size,int nbcoups);
@@ -71,17 +83,17 @@ void afficherMenu(SDL_Surface *ecran,int size,int nbcoups);
 void initialise();
 /**
 *	\fn dessinerfleche(SDL_Surface *ecran,int fleche)
-*	\brief permet d'afficher le fleche pour surfer dans le menu et choisir les options de jeu en s'appyant sur un entier fleche
+*	\brief permet d'afficher la flèche pour surfer dans le menu et choisir les options de jeu en appuyant sur un entier fleche
 *	\param *ecran adresse de l'ecran
-*	\param fleche pour de marquer l'emlacement du fleche au cours de navigation menu
+*	\param fleche flèche pour de marquer l'emlacement de  fleche au cours de navigation menu
 *	\return void c'est une fonction de type void
 */
 void dessinerfleche(SDL_Surface *ecran,int fleche);
 /**
 *	\fn finjeu(SDL_Surface *ecran,TTF_Font *police,int WL,int nbr_mvm)
-*	\brief permet d'afficher les messages de fin de jeu(win or lose) et afficher la grille dans son etat final ainsi le nombre de mouvements faites pour ganger
+*	\brief permet d'afficher les messages de fin de jeu(win or lose) et afficher la grille dans son etat final ainsi le nombre de mouvements faits pour gagner
 *	\param *ecran adresse de l'ecran
-*	\param plice pour ecrire les message
+*	\param police police pour ecrire les message
 *	\param WL pour designer (win or lose )
 *	\param nbr_mvm le nombre de mouvements pour gagner la partie 
 *	\return void c'est une fonction de type void
