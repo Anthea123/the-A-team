@@ -29,5 +29,12 @@ main_jeu.o: main_jeu.c grid_color.h loop_game.h
 jeu_texte: main_jeu.o grid_color.o loop_game.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 
+doc: Doxyfile loop_game.h grid_color.h SDL.c
+	doxygen Doxyfile
+
+valgrind: 
+	valgrind --leak-check=yes ./jeu_texte 
+	valgrind --leak-check=yes ./Jeu
+
 clean:
 	rm *.o
