@@ -22,6 +22,7 @@ int main()
 	int coups_restants;
 	int nbr_mvm = 0;
 	int test_quit = 0;
+	char c;
 	grid g;
 
 	printf("Entrer la taille de la grille:\n");
@@ -61,19 +62,18 @@ int main()
 			else{
 				test_quit = 1;
 			}
-			
 		}
 	
-
 		grid_print(&g);
 		
-		if(coups_restants >= 0 && !test_quit)
+		/*printf("test_same_colour %d\n", test_same_colour(&g));*/
+		if(test_same_colour(&g))
 		{
 			printf("Victoire! Vous avez resolu la grille en %d mouvements \n",nbr_mvm);
 		}
 		else
 		{
-			if(test_quit == 1)
+			if(test_quit)
 			{
 				printf("Au revoir!");
 			}
