@@ -31,17 +31,15 @@ Pour l'interface graphique SDL:
 ###Instructions d'utilisation
 
 Pour compiler et exécuter la boucle de jeu en mode graphique:
-`make
-./Jeu
+`make ./Jeu`
 
 
 Pour compiler et exécuter la boucle de jeu en mode texte:
-`make
-./jeu_texte
+`make ./jeu_texte`
 
 Pour tester l'absence de fuites de mémoire (Valgrind):
-`valgrind ./Jeu
-valgrind ./jeu_texte`
+`valgrind ./Jeu`
+`valgrind ./jeu_texte`
 
 Pour générer la documentation (Doxygen):
 `doxygen Doxyfile `
