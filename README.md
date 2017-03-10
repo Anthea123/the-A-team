@@ -48,6 +48,9 @@ Pour générer la documentation (Doxygen):
 
 Pour nettoyer le répertoire:
 `make clean`
+###Instructions d'utilisation du Jeu en mode graphique 
+Pour le Jeu en mode graphique pour sélectionner un choix du menu on utilise les fleches du clavier et puis Espace pour selectionner notre choix, on choisit ensuite la couleur avec le curseur, et pour rejouer une nouvelle fois on appuie sur Espace sinon pour quitter
+on selectionne "Q" au clavier.
 
 Tous les commentaires au format doxygen sont mis dans les headers pour éviter la duplication dans la documentation
 D'autres commentaires normaux sont inclus dans les fichiers sources
