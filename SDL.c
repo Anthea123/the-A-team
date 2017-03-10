@@ -1,3 +1,5 @@
+#include <SDL/SDL.h>
+#include <SDL/SDL_ttf.h>
 #include "grid_color.h"
 #include "SDL.h"
 
@@ -5,8 +7,6 @@
  compilation soous Linux : gcc -o exSDL exSDL.c -lSDL
  compilation sur Mac : gcc -o exSDL -I/Library/Frameworks/SDL.framework/Headers  exSDL.c SDLmain.m -framework SDL -framework Cocoa
 */
-
-int autoDraw=0;
 
 // px, py coordonnées haut, gauche du pixel
 void drawRectangle(SDL_Surface *ecran, int px, int py, int size, int r, int g, int b) {
@@ -71,6 +71,7 @@ void afficherMenu(SDL_Surface *ecran,int size,int nbcoups){
 	SDL_Rect position;
 	char sizeg[100];
 	char coups[100];
+  SDL_Color couleurNoire; couleurNoire.r=0; couleurNoire.g=0;couleurNoire.b=0;
 	TTF_Font *police = NULL;
 	police = TTF_OpenFont("LOTB.ttf", 15);
 	fillScreen(ecran, 255,255,255);
@@ -122,7 +123,7 @@ void dessinerfleche(SDL_Surface *ecran,int fleche){
 }
 int finjeu(SDL_Surface *ecran,TTF_Font *police,int WL,int nbr_mvm){
   SDL_Rect position;
-	SDL_Color couleurRouge={255,0,0},couleurBleu={0,0,255};
+	SDL_Color couleurRouge,couleurBleu;couleurRouge.r=255; couleurRouge.g=0;couleurRouge.b=0;couleurBleu.r=255; couleurBleu.g=0;couleurBleu.b=255;
   if(WL==0){
     SDL_Surface *wintext=NULL;
     police = TTF_OpenFont("LOTB.ttf", 15);
@@ -150,4 +151,5 @@ else if(WL==1){
   SDL_WaitEvent(&retry);
   if(retry.type==SDL_KEYDOWN) return 1;
   }
+  return 0;
 }
