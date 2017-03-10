@@ -3,9 +3,10 @@
 ##The A-Team
 
 ### Fichiers inclus
+* loop_game.c :  Contient les fonctions de base pour la boucle de jeu en mode texte
+* loop_game.h : Contient les prototypes de loop_game.c avec les commentaires en format Doxygen
+* main_jeu.c : Contient la boucle de jeu "game" en mode texte
 * exSDL.c :Contient la boucle de jeu en mode graphique 
-* test.c : Contient la définition des suites de tests unitaires et permet de générer l'exécutable tests
-* main_jeu.c : Contient la boucle de jeu en mode texte
 * grid_color.c : Contient toutes les fonctions de base
 * grid_color.h : Contient les prototypes des fonctions du module grid_color et leurs commentaires Doxygen
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
