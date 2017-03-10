@@ -18,7 +18,7 @@ int main() {
 		TTF_Font *police = NULL;
 		police = TTF_OpenFont("LOTB.ttf", 30);
 		SDL_Color couleurNoire,couleurBlanche;couleurNoire.r=255; couleurNoire.g=255;couleurNoire.b=255;couleurBlanche.r=0; couleurBlanche.g=0;couleurBlanche.b=0;
-		ecran=SDL_SetVideoMode(600,800, 32, SDL_HWSURFACE);
+		ecran=SDL_SetVideoMode(600,800, 32, SDL_HWSURFACE|SDL_RESIZABLE);
 		SDL_WM_SetCaption("ColorFlood", NULL);
 		afficherMenu(ecran,size,nbcoups);
 		drawRectangle(ecran,10,300,10,0,0,0);
