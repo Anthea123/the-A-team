@@ -22,7 +22,7 @@ char get_colour(){
 }
 
 /*	on demande à l'utilisateur de saisir une taille de la grille tant que la taille n'est pas valide
-	c-à-d supérieure ou égale à 1 on lui redemande de saisir une taille valide*/
+	c-à-d supérieure strictement à 1 on lui redemande de saisir une taille valide*/
 int get_size(){
     int s;
 
