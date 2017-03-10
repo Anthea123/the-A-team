@@ -82,11 +82,11 @@ void check(grid *g, int test_quit, int nbr_mvm){
 	{
 		if(test_quit)
 		{
-			printf("Au revoir!");
+			printf("Partie non terminée, Au revoir!\n");
 		}
 		else
 		{
-			printf("Vous avez perdu");
+			printf("Vous avez perdu :( \n");
 		}
 	}
 }
