@@ -5,10 +5,10 @@
 	tant que l'utilisateur ne quitte pas avec 'Q' on lui redemande de sasir une couleur
 	valide*/
 char get_colour(){
-    char c;
+	char c;
 	char tmp[3];
-
-    printf("Entrer une couleur:\n");
+	
+	printf("Entrer une couleur:\n");
 	scanf("%s", tmp);
 	c = tmp[0];
 
@@ -21,11 +21,12 @@ char get_colour(){
     return c;
 }
 
-/*	on demande à l'utilisateur de saisir une taille de la grille*/
+/*	on demande à l'utilisateur de saisir une taille de la grille tant que la taille n'est pas valide
+	c-à-d supérieure ou égale à 1 on lui redemande de saisir une taille valide*/
 int get_size(){
-    int s;
+    	int s;
 
-    printf("Entrer la taille de la grille:\n");
+    	printf("Entrer la taille de la grille:\n");
 	scanf("%d",&s);
 	
 	while(s < 1)
@@ -42,9 +43,9 @@ int get_size(){
 	on lui redemande de sasir un nombre de coups*/
 int get_nombre_coups()
 {
-    int nb;
+	int nb;
 
-    printf("Entrer le nombre de coups autorisé:\n");
+	printf("Entrer le nombre de coups autorisé:\n");
 	scanf("%d", &nb);
 	
 	while(nb < 1)
@@ -53,11 +54,13 @@ int get_nombre_coups()
 		scanf("%d", &nb);
 	}
 
-    return nb;
+	return nb;
 }
 
 /*	effectue les changements nécessaires à la grille à chaque tour de jeu*/
-void turn(int *coups_restants, int *nbr_mvm, grid *g, char c){
+void turn(int *coups_restants, int *nbr_mvm, grid *g, char c)
+{
+	
 	change_color(g, c);
 	refresh_grid(g);
 	*nbr_mvm = *nbr_mvm+1;
@@ -96,8 +99,9 @@ void check(grid *g, int test_quit, int nbr_mvm){
 	et que l'utilisateur ne quitte pas la partie
 	à la fin on fait appel à la fonction check pour tester la victoire, défaite ou fin de partie
 */
-void game(){
-    int size;
+void game()
+{
+	int size;
 	int coups_restants;
 	int nbr_mvm = 0;
 	int test_quit = 0;
