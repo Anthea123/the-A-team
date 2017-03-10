@@ -9,11 +9,14 @@
 * SDL.c : Contient les fonctions de base pour le jeu en mode graphique 
 * SDL.h : Contient les prototypes et les commentaires Doxygen des fonctions de base du jeu en mode graphique
 * Jeu.c : Contient la boucle de jeu en mode graphique 
+* LOTB.ttf : la police utilisée par le jeu en mode graphique
 * grid_color.c : Contient toutes les fonctions de base
 * grid_color.h : Contient les prototypes des fonctions du module grid_color et leurs commentaires Doxygen
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
 * Makefile : Permet de générer les exécutables et la documentation
-* resultat-valgrind.txt: Contient les résultats de Valgrind pour l'éxécutable jeu_texte de main_jeu.c
+* resultat-valgrind.txt : Contient les résultats de Valgrind pour l'éxécutable jeu_texte de main_jeu.c
+* resultat-valgrind-SDL.txt : Contient les résultats de Valgrind pour l'éxécutable Jeu de Jeu.c
+* Rapport_Lot_B.pdf : Rapport du Lot B
 
 
 ###Instructions d'installation
