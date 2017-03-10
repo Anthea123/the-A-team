@@ -21,11 +21,12 @@ char get_colour(){
     return c;
 }
 
-/*	on demande à l'utilisateur de saisir une taille de la grille*/
+/*	on demande à l'utilisateur de saisir une taille de la grille tant que la taille n'est pas valide
+	c-à-d supérieure ou égale à 1 on lui redemande de saisir une taille valide*/
 int get_size(){
-    int s;
+    	int s;
 
-    printf("Entrer la taille de la grille:\n");
+    	printf("Entrer la taille de la grille:\n");
 	scanf("%d",&s);
 	
 	while(s < 1)
