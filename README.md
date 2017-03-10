@@ -11,7 +11,7 @@
 * grid_color.h : Contient les prototypes des fonctions du module grid_color et leurs commentaires Doxygen
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
 * Makefile : Permet de générer les exécutables et la documentation
-* resultat-valgrind: Contient les résultats de Valgrind pour l'éxécutable jeu_texte de main_jeu.c
+* resultat-valgrind.txt: Contient les résultats de Valgrind pour l'éxécutable jeu_texte de main_jeu.c
 
 
 ###Instructions d'installation
