@@ -35,11 +35,11 @@ Pour compiler et exécuter la boucle de jeu en mode graphique:
 
 Pour compiler et exécuter la boucle de jeu en mode texte:
 `make
-./main_jeu
+./jeu_texte
 
 Pour tester l'absence de fuites de mémoire (Valgrind):
 `valgrind ./exSDL
-valgrind ./main_jeu`
+valgrind ./jeu_texte`
 
 Pour générer la documentation (Doxygen):
 `doxygen Doxyfile `
