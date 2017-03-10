@@ -1,26 +1,28 @@
-#include "SDL.h"
 #include <SDL/SDL.h>
 #include <SDL/SDL_ttf.h>
+#include "grid_color.h"
+#include "SDL.h"
+
+
 
 int main() {
 	while(1){
 		grid g;int size=2,nbcoups=1;
-		char sizeg[100];
-		char coups[100];
 		SDL_Rect position;
 		int continuer=1;
-		SDL_Surface *ecran = NULL,*texte=NULL,*menu1=NULL,*menu2=NULL,*menu3=NULL;
+		SDL_Surface *ecran = NULL,*texte=NULL;
 		SDL_Event event,touche;
+		initialise();
     int nbr_mvm=0;
 		char mouvement[100];
-    initialise();
-		TTF_Font *police = NULL,*pmenu=NULL;
+		TTF_Font *police = NULL;
 		police = TTF_OpenFont("LOTB.ttf", 30);
-		SDL_Color couleurNoire = {0, 0, 0},couleurBlanche = {255, 255, 255},couleurRouge={255,0,0},couleurBleu={0,0,255},couleurgris={127,127,127};
+		SDL_Color couleurNoire,couleurBlanche;couleurNoire.r=255; couleurNoire.g=255;couleurNoire.b=255;couleurBlanche.r=0; couleurBlanche.g=0;couleurBlanche.b=0;
 		ecran=SDL_SetVideoMode(600,800, 32, SDL_HWSURFACE);
 		SDL_WM_SetCaption("ColorFlood", NULL);
 		afficherMenu(ecran,size,nbcoups);
 		drawRectangle(ecran,10,300,10,0,0,0);
+		SDL_Flip(ecran);
 		int compteur=1,fleche=300;
     //MENU//
     while(compteur){
@@ -45,7 +47,7 @@ int main() {
 		printcouleurs(ecran);
 		int cinit=nbcoups;
 		sprintf(mouvement,"%d/%d",nbcoups,cinit);
-		texte = TTF_RenderText_Shaded(police, mouvement,couleurNoire,couleurBlanche);
+		texte = TTF_RenderText_Shaded(police, mouvement,couleurBlanche,couleurNoire);
 		position.x = 10;
 		position.y = 10;
 		SDL_BlitSurface(texte, NULL, ecran,&position);
@@ -74,7 +76,7 @@ int main() {
 									drawRectangle(ecran,120,10,90,255,255,255);
 									nbcoups--;
 									sprintf(mouvement,"%d/%d",nbcoups,cinit);
-									texte = TTF_RenderText_Shaded(police, mouvement,couleurNoire,couleurBlanche);
+									texte = TTF_RenderText_Shaded(police, mouvement,couleurBlanche,couleurNoire);
 									SDL_BlitSurface(texte, NULL, ecran,&position);
 									if(event.button.x<130 && event.button.x>60){	jouer(ecran,g,'V'); break;}
 									if(event.button.x<210 && event.button.x>140){	jouer(ecran,g,'R'); break;	}

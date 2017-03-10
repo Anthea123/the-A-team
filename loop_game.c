@@ -90,7 +90,11 @@ void check(grid *g, int test_quit, int nbr_mvm){
 
 /*
 	l'utilisateur saisit une taille qui est testée par la fonction get_size
-	il saisit ensuite le nombre de coups autorisés qui doit être valide à 
+	il saisit ensuite le nombre de coups autorisés qui doit être valide grace à la fonction get_nombre_coups
+	La grille est initialisée aléatoirement à l'aide de init_grid
+	on rentre dans la boucle de jeu tant que la grille n'est pas d'une seule couleur et tant que coups_restants>0
+	et que l'utilisateur ne quitte pas la partie
+	à la fin on fait appel à la fonction check pour tester la victoire, défaite ou fin de partie
 */
 void game(){
     int size;
@@ -105,12 +109,12 @@ void game(){
 	 
         coups_restants = get_nombre_coups();
 
-		g = init_grid(size);
+	g = init_grid(size);
 
-		grid_print(&g);
-		detect_flood(&g, 0, 0, g.array[0][0]);
+	grid_print(&g);
+	detect_flood(&g, 0, 0, g.array[0][0]);
 		
-		while(!test_same_colour(&g) && coups_restants > 0 && !test_quit){
+	while(!test_same_colour(&g) && coups_restants > 0 && !test_quit){
 			
             c = get_colour();
 
@@ -120,10 +124,10 @@ void game(){
 			else{
 				test_quit = 1;
 			}
-		}
+	}
 		
-		check(&g, test_quit, nbr_mvm);
+	check(&g, test_quit, nbr_mvm);
 
-		free_grid(&g);
+	free_grid(&g);
 	
 }

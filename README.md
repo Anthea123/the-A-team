@@ -3,16 +3,15 @@
 ##The A-Team
 
 ### Fichiers inclus
+* loop_game.c :  Contient les fonctions de base pour la boucle de jeu en mode texte
+* loop_game.h : Contient les prototypes de loop_game.c avec les commentaires en format Doxygen
+* main_jeu.c : Contient la boucle de jeu "game" en mode texte
 * exSDL.c :Contient la boucle de jeu en mode graphique 
-* SDLMain.m :
-* SDLMain.h :
-* test.c : Contient la définition des suites de tests unitaires et permet de générer l'exécutable tests
-* main_jeu.c : Contient la boucle de jeu en mode texte
 * grid_color.c : Contient toutes les fonctions de base
 * grid_color.h : Contient les prototypes des fonctions du module grid_color et leurs commentaires Doxygen
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
 * Makefile : Permet de générer les exécutables et la documentation
-* resultat-valgrind: Contient les résultats de Valgrind pour les deux exécutables
+* resultat-valgrind: Contient les résultats de Valgrind pour l'éxécutable jeu_texte de main_jeu.c
 
 
 ###Instructions d'installation
@@ -36,14 +35,14 @@ Pour compiler et exécuter la boucle de jeu en mode graphique:
 
 Pour compiler et exécuter la boucle de jeu en mode texte:
 `make
-./main_jeu
+./jeu_texte
 
 Pour tester l'absence de fuites de mémoire (Valgrind):
 `valgrind ./exSDL
-valgrind ./main_jeu`
+valgrind ./jeu_texte`
 
 Pour générer la documentation (Doxygen):
-`doxygen Doxyfile`
+`doxygen Doxyfile `
 
 Pour nettoyer le répertoire:
 `make clean`
