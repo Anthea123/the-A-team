@@ -15,7 +15,7 @@ int main()
 		SDL_Surface *ecran = NULL,*texte=NULL;
 		SDL_Event event,touche;
 		initialise();
-    	int nbr_mvm=0;
+    		int nbr_mvm=0;
 		char mouvement[100];
 		TTF_Font *police = NULL;
 		police = TTF_OpenFont("LOTB.ttf", 30);
@@ -26,7 +26,7 @@ int main()
 		drawRectangle(ecran,10,300,10,0,0,0);
 		SDL_Flip(ecran);
 		int compteur=1,fleche=300;
-    	//MENU//
+    		//MENU//
    		while(compteur)
 		{
 			SDL_WaitEvent(&touche);
