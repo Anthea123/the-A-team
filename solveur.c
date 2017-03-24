@@ -10,6 +10,7 @@ grid copy(grid g){
   for(int i=0;i<n;i++){
     for(int j=0;j<n;j++){
       g1.array[i][j]=g.array[i][j];
+      g1.belong[i][j]=g.belong[i][j];
     }
   }
   return g1;
@@ -19,15 +20,18 @@ bool choixpertinent(grid g,char c){
   if(g.array[0][0]==c)
     return false;
 
-    int n=g.size;
+  int n=g.size;
   detect_flood(&g,0,0,g.array[0][0]);
   grid g1=copy(g);
+  detect_flood(&g1,0,0,g1.array[0][0]);
   change_color(&g1,c);
-  detect_flood(&g1,0,0,g.array[0][0]);
+  refresh_grid(&g1);
+  detect_flood(&g1,0,0,g1.array[0][0]);
+  grid_print(&g1);
   for(int i=0;i<n;i++){
     for(int j=0;j<n;j++){
-      if(g1.belong[i][j]!=g.belong[i][j]) return false;
+      if(g1.belong[i][j]!=g.belong[i][j]) return true;
     }
   }
-  return true;
+  return false;
 }
