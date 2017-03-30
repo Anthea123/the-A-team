@@ -197,6 +197,46 @@ void test_get_next(void){
 
 /***************** tests pour le solveur ************************/
 
+bool test_egalite(grid g1, grid g2){
 
+	if(g1.size != g2.size){
+		printf("taille\n");
+		return false;
+	}
+	else{
+		for(int i = 0; i < g1.size; i = i+1){
+			for(int j = 0; j < g1.size; j = j+1){
+				if((g1.array[i][j] != g2.array[i][j]) || (g1.belong[i][j] != g2.belong[i][j])){
+					printf("%d, %d: %c, %c; %d, %d\n", i, j, g1.array[i][j], g2.array[i][j], g1.belong[i][j], g2.belong[i][j]);
+					return false;
+				}
+			}
+		}
+	}
+
+	return true;
+}
+
+void test_copy(void){
+	grid g1 = init_grid(0);
+	grid g2 = copy(g1);
+
+	grid g3 = init_grid(1);
+	grid g4 = copy(g3);
+
+	grid g5 = init_grid(12);
+	grid g6 = copy(g5);
+
+	CU_ASSERT(test_egalite(g1, g2) == true);
+	CU_ASSERT(test_egalite(g3, g4) == true);
+	CU_ASSERT(test_egalite(g5, g6) == true);
+
+	free_grid(&g1);
+	free_grid(&g2);
+	free_grid(&g3);
+	free_grid(&g4);
+	free_grid(&g5);
+	free_grid(&g6);
+}
 
 

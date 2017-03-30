@@ -78,7 +78,23 @@ void test_get_next(void);
 
 /***************** tests pour le solveur ************************/
 
+/**
+*	 \fn test_egalite(grid g1, grid g2);
+*	 \brief teste si les grilles passées en paramètre sont égales
+*	 \param g1 une grille
+*	 \param g2 une grille 
+*	 \return true si les tableaux array et les tableaux belong des grilles contiennent les mêmes informations
+*    \return false sinon
+*/
+bool test_egalite(grid g1, grid g2);
 
+/**
+*	 \fn test_copy(void)
+*	 \brief test unitaire de la fonction copy
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_copy(void);
 
 
 #endif
