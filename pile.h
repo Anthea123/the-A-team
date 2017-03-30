@@ -2,7 +2,7 @@
 
 typedef struct pile pile;
 
-pile* pile_init(void);
+pile* init_pile(void);
 
 bool est_vide(pile*);
 

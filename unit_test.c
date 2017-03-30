@@ -90,11 +90,10 @@ void test_pop(void){
 	push(&p3, 'H');
 	push(&p3, 'C');
 	push(&p3, 'I');
-	pop(&p3);
-	pop(&p3);
-	pop(&p3);
-	pop(&p3);
-	pop(&p3);
+
+	for(int i = 0; i <= 4; i = i+1){
+		pop(&p3);
+	}
 
 	CU_ASSERT(est_vide(p1) == true);
 	CU_ASSERT(get_head(p2) == 'G');
@@ -110,40 +109,13 @@ void test_free_pile(void){
 	pile* p2 = init_pile();
 	pile* p3 = init_pile();
 
-	push(&p2, 'V');
-	push(&p2, 'G');
-	push(&p2, 'R');
-	push(&p2, 'V');
-	push(&p2, 'G');
-	push(&p2, 'R');
-	push(&p2, 'V');
-	push(&p2, 'G');
-	push(&p2, 'R');
+	for(int i = 0; i <= 5; i = i+1){
+		push(&p2, 'H');
+	}
 
-	push(&p3, 'R');
-	push(&p3, 'G');
-	push(&p3, 'v');
-	push(&p3, 'B');
-	push(&p3, 'G');
-	push(&p3, 'H');
-	push(&p3, 'C');
-	push(&p3, 'I');
-	push(&p3, 'R');
-	push(&p3, 'G');
-	push(&p3, 'v');
-	push(&p3, 'B');
-	push(&p3, 'G');
-	push(&p3, 'H');
-	push(&p3, 'C');
-	push(&p3, 'I');
-	push(&p3, 'R');
-	push(&p3, 'G');
-	push(&p3, 'v');
-	push(&p3, 'B');
-	push(&p3, 'G');
-	push(&p3, 'H');
-	push(&p3, 'C');
-	push(&p3, 'I');
+	for(int i = 0; i <= 200; i = i+1){
+		push(&p3, 'R');
+	}
 
 	free_pile(&p1);
 	free_pile(&p2);
@@ -159,30 +131,26 @@ void test_get_head(void){
 	pile* p2 = init_pile();
 	pile* p3 = init_pile();
 
-	push(&p2, 'H');
-	push(&p2, 'H');
-	push(&p2, 'H');
-	push(&p2, 'H');
-	push(&p2, 'H');
+	for(int i = 0; i <= 5; i = i+1){
+		push(&p2, 'H');
+	}
+	
 	push(&p2, 'I');
 
-	push(&p3, 'J');
-	push(&p3, 'J');
-	push(&p3, 'J');
-	push(&p3, 'J');
+	for(int i = 0; i <= 4; i = i+1){
+		push(&p3, 'J');
+	}
 	push(&p3, 'K');
-	push(&p3, 'J');
-	push(&p3, 'J');
-	push(&p3, 'J');
-	push(&p3, 'J');
-	push(&p3, 'J');
+	for(int i = 0; i <= 6; i = i+1){
+		push(&p3, 'J');
+	}
 	push(&p3, 'L');
-	pop(&p3);
-	pop(&p3);
-	pop(&p3);
-	pop(&p3);
-	pop(&p3);
-	pop(&p3);
+	
+	CU_ASSERT(get_head(p3) == 'L');
+	
+	for(int i = 0; i <= 7; i = i+1){
+		pop(&p3);
+	}
 			
 	CU_ASSERT(get_head(p1) == '\0');
 	CU_ASSERT(get_head(p2) == 'I');
@@ -199,30 +167,23 @@ void test_get_next(void){
 	pile* p2 = init_pile();
 	pile* p3 = init_pile();
 
-	push(&p2, 'H');
-	push(&p2, 'H');
-	push(&p2, 'H');
-	push(&p2, 'H');
-	push(&p2, 'H');
+	for(int i = 0; i <= 5; i = i+1){
+		push(&p2, 'H');
+	}
+	
 	push(&p2, 'I');
 
-	push(&p3, 'J');
-	push(&p3, 'J');
-	push(&p3, 'J');
-	push(&p3, 'J');
+	for(int i = 0; i <= 4; i = i+1){
+		push(&p3, 'J');
+	}
 	push(&p3, 'K');
-	push(&p3, 'J');
-	push(&p3, 'J');
-	push(&p3, 'J');
-	push(&p3, 'J');
-	push(&p3, 'J');
+	for(int i = 0; i <= 6; i = i+1){
+		push(&p3, 'J');
+	}
 	push(&p3, 'L');
-	pop(&p3);
-	pop(&p3);
-	pop(&p3);
-	pop(&p3);
-	pop(&p3);
-	pop(&p3);
+	for(int i = 0; i <= 7; i = i+1){
+		pop(&p3);
+	}
 
 	CU_ASSERT(get_next(p1) == NULL);
 	CU_ASSERT(get_next(p2) != NULL);
@@ -235,6 +196,7 @@ void test_get_next(void){
 }
 
 /***************** tests pour le solveur ************************/
+
 
 
 
