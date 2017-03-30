@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #include "grid_color.h"
 #include "solveur.h"
+#include "pile.h"
+#include "solvpile.h"
 
+char couleurs[6]={'B','V','R','J','M','G'};
 
 grid copy(grid g){
   int n=g.size;
@@ -27,11 +30,38 @@ bool choixpertinent(grid g,char c){
   change_color(&g1,c);
   refresh_grid(&g1);
   detect_flood(&g1,0,0,g1.array[0][0]);
-  grid_print(&g1);
   for(int i=0;i<n;i++){
     for(int j=0;j<n;j++){
       if(g1.belong[i][j]!=g.belong[i][j]) return true;
     }
   }
   return false;
+}
+
+solvpile* solveur(grid g,pile *solution,int prof,int profmax,solvpile* soltrouve){
+    if(prof==profmax){
+      solution=NULL;
+      prof=0;
+      return soltrouve;
+    }
+    for(int i=0;i<6;i++){
+      if(choixpertinent(g,couleurs[i]) && prof<profmax){
+        grid g2=copy(g);
+        push(&solution,couleurs[i]);
+        detect_flood(&g2,0,0,g.array[0][0]);
+        change_color(&g2,couleurs[i]);
+        refresh_grid(&g2);
+        if(test_same_colour(&g2)){
+          solvpush(&soltrouve,solution);
+          profmax=prof;
+          prof=0;
+        }
+        else {
+          prof++;
+          profmax++;
+          soltrouve=solveur(g2,solution,prof,profmax,soltrouve);
+        }
+      }
+    }
+    return soltrouve;
 }
