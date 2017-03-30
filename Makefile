@@ -44,6 +44,7 @@ doc: Doxyfile loop_game.h grid_color.h SDL.c
 valgrind:
 	valgrind --leak-check=yes ./jeu_texte
 	valgrind --leak-check=yes ./Jeu
+	valgrind --leak-check=yes ./exsolveur
 
 clean:
 	rm *.o
