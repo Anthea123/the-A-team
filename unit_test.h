@@ -35,6 +35,47 @@ void test_init_pile(void);
 */
 void test_est_vide(void);
 
+/**
+*	 \fn test_push(void)
+*	 \brief test unitaire de la fonction push
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_push(void);
+
+/**
+*	 \fn test_pop(void)
+*	 \brief test unitaire de la fonction pop
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_pop(void);
+
+/**
+*	 \fn test_free_pile(void)
+*	 \brief test unitaire de la fonction free_pile
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_free_pile(void);
+
+/**
+*	 \fn test_get_head(void)
+*	 \brief test unitaire de la fonction get_head
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_get_head(void);
+
+/**
+*	 \fn test_get_next(void)
+*	 \brief test unitaire de la fonction get_next
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_get_next(void);
+
+
 /***************** tests pour le solveur ************************/
 
 

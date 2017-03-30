@@ -8,11 +8,11 @@ struct pile {
 };
 
 pile* init_pile(void){
-	return 0;
+	return NULL;
 }
 
 bool est_vide(pile* p) {
-	return (0 == p);
+	return (NULL == p);
 }
 
 void push(pile** pp,char c) {
@@ -35,9 +35,21 @@ void free_pile(pile **pp){
 }
 
 char get_head(pile *p){
-	return p->val;
+	if(!est_vide(p)){
+		return p->val;
+	}
+	else{
+		printf("pile vide\n");
+		return '\0';
+	}
 }
 
 pile* get_next(pile *p){
-	return p->next;
+	if(!est_vide(p)){
+		return p->next;
+	}
+	else{
+		printf("pile vide\n");
+		return NULL;
+	}
 }
