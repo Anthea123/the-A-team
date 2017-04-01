@@ -63,9 +63,19 @@ void free_solvpile(solvpile **pp){
 
 
 pile * solvget_head(solvpile *pp){
-	return pp->sol;
+	if(!solvest_vide(pp)){
+		return pp->sol;
+	}
+	else{
+		return NULL;
+	}
 }
 
 solvpile * solvget_next(solvpile *pp){
+	if(!solvest_vide(pp)){
 	return pp->next;
+	}
+	else{
+		return NULL;
+	}
 }
