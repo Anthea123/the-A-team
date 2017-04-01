@@ -54,3 +54,9 @@ void print_solvpile(solvpile *p){
 		p=p->next;
 	}
 }
+
+void free_solvpile(solvpile **pp){
+	while(!solvest_vide(*pp)){
+		solvpop(pp);
+	}
+}
