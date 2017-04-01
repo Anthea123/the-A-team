@@ -60,3 +60,12 @@ void free_solvpile(solvpile **pp){
 		solvpop(pp);
 	}
 }
+
+
+pile * solvget_head(solvpile *pp){
+	return pp->sol;
+}
+
+solvpile * solvget_next(solvpile *pp){
+	return pp->next;
+}

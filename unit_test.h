@@ -76,6 +76,75 @@ void test_get_head(void);
 void test_get_next(void);
 
 
+/**
+*	 \fn test_pilelen(void)
+*	 \brief test unitaire de la fonction pilelen
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_pilelen(void);
+
+
+/******************tests pour les piles de piles*****************/
+
+/**
+*	 \fn test_init_solvpile(void)
+*	 \brief test unitaire de la fonction init_solvpile
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_init_solvpile(void);
+
+/**
+*	 \fn test_solvest_vide(void)
+*	 \brief test unitaire de la fonction solvest_vide
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_solvest_vide(void);
+
+bool compare_piles(pile *p1, pile *p2);
+
+/**
+*	 \fn test_solvpush(void)
+*	 \brief test unitaire de la fonction solvpush
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_solvpush(void);
+
+/**
+*	 \fn test_solvpop(void)
+*	 \brief test unitaire de la fonction solvpop
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_solvpop(void);
+
+/**
+*	 \fn test_free_solvpile(void)
+*	 \brief test unitaire de la fonction free_solvpile
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_free_solvpile(void);
+
+/**
+*	 \fn test_free_solvget_head(void)
+*	 \brief test unitaire de la fonction free_solvget_head
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_solvget_head(void);
+
+/**
+*	 \fn test_free_solvget_next(void)
+*	 \brief test unitaire de la fonction free_solvget_next
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_solvget_next(void);
+
 /***************** tests pour le solveur ************************/
 
 /**

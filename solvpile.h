@@ -17,3 +17,7 @@ pile* minpile(solvpile* p);
 void print_solvpile(solvpile *p);
 
 void free_solvpile(solvpile **pp);
+
+pile * solvget_head(solvpile *pp);
+
+solvpile * solvget_next(solvpile *pp);

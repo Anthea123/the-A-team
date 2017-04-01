@@ -4,7 +4,7 @@ CC=gcc
 CFLAGS=-std=c11 -Wall -Wextra -g
 LDFLAGS=-lm -lcunit
 
-all: Jeu jeu_texte exsolveur
+all: Jeu jeu_texte exsolveur tests
 
 
 grid_color.o: grid_color.c grid_color.h
@@ -28,16 +28,31 @@ main_jeu.o: main_jeu.c grid_color.h loop_game.h
 
 jeu_texte: main_jeu.o grid_color.o loop_game.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
+
 pile.o:pile.c pile.h
 	${CC} ${CFLAGS}  -c pile.c
+
 solvpile.o:solvpile.c solvpile.h pile.h
 	${CC} ${CFLAGS}  -c solvpile.c
+
 mainsolveur.o: mainsolveur.c solveur.h  grid_color.h pile.h solvpile.h
 	${CC} ${CFLAGS}  -c mainsolveur.c
+
 solveur.o:solveur.c solveur.h grid_color.h pile.h solvpile.h
 	${CC} ${CFLAGS}  -c solveur.c
+
 exsolveur:solveur.o mainsolveur.o grid_color.o pile.o solvpile.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
+
+unit_test.o: unit_test.c unit_test.h pile.h solvpile.h solveur.h grid_color.h 
+	${CC} ${CFLAGS}  -c unit_test.c
+
+main_test.o: unit_test.h pile.h solvpile.h solveur.h grid_color.h 
+	${CC} ${CFLAGS}  -c main_test.c		
+
+tests: main_test.o unit_test.o pile.o solvpile.o solveur.o grid_color.o 
+	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
+	
 doc: Doxyfile loop_game.h grid_color.h SDL.c
 	doxygen Doxyfile
 
