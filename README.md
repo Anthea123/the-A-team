@@ -48,6 +48,7 @@ Pour compiler et exécuter les tests:
 Pour tester l'absence de fuites de mémoire (Valgrind
 
 `valgrind ./exsolveur`
+
 `valgrind ./tests`
 
 Pour générer la documentation (Doxygen):
