@@ -24,9 +24,11 @@ void push(pile** pp,char c) {
 }
 
 void pop(pile** pp) {
-	pile* tmp=(*pp)->next;
-	free(*pp);
-	*pp = tmp;
+	if(!est_vide(*pp)){
+		pile* tmp=(*pp)->next;
+		free(*pp);
+		*pp = tmp;
+	}
 }
 
 void free_pile(pile **pp){
@@ -53,4 +55,23 @@ pile* get_next(pile *p){
 		printf("pile vide\n");
 		return NULL;
 	}
+}
+
+int pilelen(pile *p){
+	int res = 0;
+
+	while(!est_vide(p)){
+		res = res+1;
+		p = get_next(p);
+	}
+
+	return res;
+}
+
+void print_pile(pile *p){
+	while(!est_vide(p)){
+		printf("%c", p->val);
+		p = get_next(p);
+	}
+	printf("\n");
 }

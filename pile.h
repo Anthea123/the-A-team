@@ -14,4 +14,8 @@ char get_head(pile *p);
 
 pile* get_next(pile *p);
 
+int pilelen(pile *p);
+
+void print_pile(pile *p);
+
 void free_pile(pile **pp);
