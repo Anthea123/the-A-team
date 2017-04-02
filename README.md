@@ -50,6 +50,7 @@ Pour générer la documentation (Doxygen):
 
 Pour nettoyer le répertoire:
 `make clean`
+
 ###Instructions d'utilisation du solveur en mode graphique 
 
 Pour le Solveur en mode graphique pour sélectionner un choix du menu on utilise les fleches haut et bas du clavier et pour choisir la taille on utilise les fleches gauche et droite et puis Espace pour selectionner notre choix, on choisit ensuite la couleur avec le curseur, et pour rejouer une nouvelle fois on appuie sur Espace sinon pour quitter on appuie sur echap au clavier.
