@@ -1,3 +1,11 @@
+
+/**
+*	\file solpile.c
+*	\brief implémentations 
+*	\author Loubna Anthea Abdellah Bader
+*	\version 3.0
+*	\date 2 Apr 2017
+*/
 #include "pile.h"
 #include "solvpile.h"
 
