@@ -870,6 +870,125 @@ void test_solvget_next(void){
 	free_solvpile(&sp3);
 }
 
+void test_minpile(void){
+	solvpile* sp1 = init_solvpile();
+	solvpile* sp2 = init_solvpile();
+	solvpile* sp3 = init_solvpile();
+
+	pile* p1 = init_pile();
+	pile* p2 = init_pile();
+	pile* p3 = init_pile();
+	pile* p4 = init_pile();
+	pile* p5 = init_pile();
+	pile* p6 = init_pile();
+	pile* p7 = init_pile();
+	pile* p8 = init_pile();
+	pile* p9 = init_pile();
+	pile* p10 = init_pile();
+	pile* p11 = init_pile();
+	pile* p12 = init_pile();
+	pile* p13 = init_pile();
+	pile* p14 = init_pile();
+	pile* p15 = init_pile();
+
+	push(&p1, 'G');
+
+	push(&p2, 'V');
+	push(&p2, 'G');
+	
+	push(&p3, 'R');
+	push(&p3, 'G');
+	push(&p3, 'v');
+
+	push(&p4, 'B');
+	push(&p4, 'G');
+
+	push(&p5, 'H');
+	push(&p5, 'C');
+	push(&p5, 'I');
+
+	push(&p6, 'G');
+	push(&p6, 'G');
+	push(&p6, 'G');
+	push(&p6, 'G');
+	push(&p6, 'G');
+
+	push(&p7, 'V');
+	push(&p7, 'G');
+	push(&p7, 'R');
+	
+	push(&p8, 'R');
+	push(&p8, 'G');
+	push(&p8, 'v');
+
+	push(&p9, 'B');
+	push(&p9, 'G');
+
+	push(&p10, 'H');
+	push(&p10, 'C');
+	push(&p10, 'I');
+
+	push(&p11, 'G');
+
+	push(&p12, 'V');
+	push(&p12, 'G');
+	push(&p12, 'R');
+	
+	push(&p13, 'R');
+	push(&p13, 'G');
+	push(&p13, 'v');
+
+	push(&p14, 'B');
+	push(&p14, 'G');
+
+	push(&p15, 'H');
+	push(&p15, 'C');
+	push(&p15, 'I');
+
+	solvpush(&sp1, p1);
+	solvpop(&sp1);
+
+	solvpush(&sp2, p2);
+	solvpush(&sp2, p3);
+	solvpush(&sp2, p4);
+	solvpush(&sp2, p5);
+
+	solvpush(&sp3, p6);
+	solvpush(&sp3, p7);
+	solvpush(&sp3, p8);
+	solvpush(&sp3, p9);
+	solvpush(&sp3, p10);
+	solvpush(&sp3, p11);
+	solvpush(&sp3, p12);
+	solvpush(&sp3, p13);
+	solvpush(&sp3, p14);
+	solvpush(&sp3, p15);
+
+	CU_ASSERT(minpile(sp1) == NULL);
+	CU_ASSERT(compare_piles(minpile(sp2), p4) == true);
+	CU_ASSERT(compare_piles(minpile(sp3), p11) == true);
+
+	free_pile(&p1);
+	free_pile(&p2);
+	free_pile(&p3);
+	free_pile(&p4);
+	free_pile(&p5);
+	free_pile(&p6);
+	free_pile(&p7);
+	free_pile(&p8);
+	free_pile(&p9);
+	free_pile(&p10);
+	free_pile(&p11);
+	free_pile(&p12);
+	free_pile(&p13);
+	free_pile(&p14);
+	free_pile(&p15);
+
+	free_solvpile(&sp1);
+	free_solvpile(&sp2);
+	free_solvpile(&sp3);
+}
+
 /***************** tests pour le solveur ************************/
 
 bool test_egalite(grid g1, grid g2){

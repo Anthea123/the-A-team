@@ -27,16 +27,21 @@ void solvpush(solvpile** pp, pile* v) {
 }
 
 pile* minpile(solvpile* p){
-	pile *min=p->sol;
-	int l=pilelen(min);
-	while(p!=NULL){
-		if(l>pilelen(p->sol)){
-			l=pilelen(p->sol);
-			min=p->sol;
-		}
-		p=p->next;
+	if(solvest_vide(p)){
+		return NULL;
 	}
-return min;
+	else{
+		pile *min=p->sol;
+		int l=pilelen(min);
+		while(p!=NULL){
+			if(l>pilelen(p->sol)){
+				l=pilelen(p->sol);
+				min=p->sol;
+			}
+			p=p->next;
+		}
+		return min;
+	}
 }
 
 

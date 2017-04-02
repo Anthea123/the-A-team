@@ -103,6 +103,14 @@ void test_init_solvpile(void);
 */
 void test_solvest_vide(void);
 
+/**
+*	 \fn compare_piles(pile *p1, pile *p2)
+*	 \brief teste si les piles passées en paramètres contiennent les mêmes caractères dans le même ordre
+*	 \param  *p1 pointeur vers une pile
+*	 \param  *p2 pointeur vers une pile
+*	 \return true si les piles contiennent les mêmes éléments
+*    \return false sinon
+*/
 bool compare_piles(pile *p1, pile *p2);
 
 /**
@@ -144,6 +152,14 @@ void test_solvget_head(void);
 *	 \return void fonction de type void
 */
 void test_solvget_next(void);
+
+/**
+*	 \fn test_minpile(void)
+*	 \brief test unitaire de la fonction free_minpile
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
+void test_minpile(void);
 
 /***************** tests pour le solveur ************************/
 
