@@ -37,10 +37,10 @@ exsolveur:solveur.o mainsolveur.o grid_color.o pile.o solvpile.o
 unit_test.o:unit_test.c unit_test.h pile.h
 	${CC} ${CFLAGS}  -c unit_test.c
 	
-main_test.o: main_test.c unit_test.h
+main_test.o: main_test.c unit_test.h grid_color.h
 	${CC} ${CFLAGS}  -c main_test.c
 	
-tests: main_test.o unit_test.o
+tests: main_test.o unit_test.o grid_color.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 	
 doc: Doxyfile 
