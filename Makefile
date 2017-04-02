@@ -37,7 +37,7 @@ exsolveur:solveur.o mainsolveur.o grid_color.o pile.o solvpile.o
 unit_test.o:unit_test.c unit_test.h pile.h grid_color.h solvpile.h
 	${CC} ${CFLAGS}  -c unit_test.c
 	
-main_test.o: main_test.c unit_test.h grid_color.h solvepile.h grid_color.h
+main_test.o: main_test.c unit_test.h grid_color.h solvpile.h grid_color.h
 	${CC} ${CFLAGS}  -c main_test.c
 	
 tests: main_test.o unit_test.o grid_color.o
