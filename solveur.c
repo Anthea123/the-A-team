@@ -1,3 +1,10 @@
+/**
+*	\file solveur.c
+*	\brief implémentation des fonctions du solveur
+*	\author Loubna Anthea Abdellah Bader
+*	\version 3.0
+*	\date 2 Apr 2017
+*/
 #include <stdbool.h>
 #include <stdlib.h>
 #include "grid_color.h"
