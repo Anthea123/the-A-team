@@ -34,12 +34,15 @@ solveur.o:solveur.c solveur.h grid_color.h pile.h solvpile.h
 exsolveur:solveur.o mainsolveur.o grid_color.o pile.o solvpile.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 	
+unit_test.o:unit_test.c unit_test.h pile.h
+	${CC} ${CFLAGS}  -c unit_test.c
 doc: Doxyfile 
 	doxygen Doxyfile
 
 valgrind:
-	valgrind --leak-check=yes ./jeu_texte
-	valgrind --leak-check=yes ./Jeu
+	valgrind --leak-check=yes ./tests
+	valgrind --leak-check=yes ./exsolveur
+	valgrind --leak-check=yes ./solveurSDL
 
 clean:
 	rm *.o
