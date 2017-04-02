@@ -20,6 +20,7 @@ grid copy(grid g);
 *	\fn bool choixpertinent(grid g,char c)
 *	\brief 
 *	\param g la grille à copier
+*	\param c couleur 
 *	\return bool  
 */
 bool choixpertinent(grid g,char c);
