@@ -27,28 +27,35 @@ Pour la documentation doxygen:
 `sudo apt-get install doxygen`
 
 Pour les tests unitaires, la librairie CUnit est nécessaire:
+
 `sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev`
 
 Pour l'interface graphique SDL:
+
 `sudo apt-get install libsdl1.2-dev libsdl-gfx1.2-dev libsdl-ttf2.0-dev libfreeimage-dev`
 
 ###Instructions d'utilisation
 
 Pour compiler et exécuter le solveur en mode texte:
+
 `make ./exsolveur`
 
 
 Pour compiler et exécuter les tests:
+
 `make ./tests`
 
-Pour tester l'absence de fuites de mémoire (Valgrind):
+Pour tester l'absence de fuites de mémoire (Valgrind
+
 `valgrind ./exsolveur`
 `valgrind ./tests`
 
 Pour générer la documentation (Doxygen):
+
 `doxygen Doxyfile `
 
 Pour nettoyer le répertoire:
+
 `make clean`
 
 ###Instructions d'utilisation du solveur en mode graphique 
