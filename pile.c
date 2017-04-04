@@ -75,3 +75,13 @@ void print_pile(pile *p){
 	}
 	printf("\n");
 }
+
+pile * reverse(pile *p){
+	pile *res = init_pile();
+	while(!est_vide(p)){
+		push(&res, get_head(p));
+		p = get_next(p);
+	}
+
+	return res;
+}

@@ -13,6 +13,7 @@
 #include "CUnit/CUnit.h"
 #include "CUnit/Basic.h"
 #include "grid_color.h"
+#include "solvpile.h"
 #include "pile.h"
 #include "solveur.h"
 

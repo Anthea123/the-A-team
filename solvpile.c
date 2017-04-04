@@ -43,6 +43,10 @@ void solvpush(solvpile** pp, pile* v)
 
 pile* minpile(solvpile* p)
 {
+	if(solvest_vide(p)){
+		return NULL;
+	}
+
 	pile *min=p->sol;
 	int l=pilelen(min);
 	while(p!=NULL)
@@ -54,7 +58,7 @@ pile* minpile(solvpile* p)
 		}
 		p=p->next;
 	}
-return min;
+	return min;
 }
 
 

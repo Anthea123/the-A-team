@@ -4,11 +4,11 @@ typedef struct pile pile;
 
 pile* init_pile(void);
 
-bool est_vide(pile*);
+bool est_vide(pile* p);
 
-void push(pile**, char);
+void push(pile** pp, char c);
 
-void pop(pile**);
+void pop(pile** pp);
 
 char get_head(pile *p);
 
@@ -19,3 +19,5 @@ int pilelen(pile *p);
 void print_pile(pile *p);
 
 void free_pile(pile **pp);
+
+pile * reverse(pile *p);

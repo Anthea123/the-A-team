@@ -1,6 +1,7 @@
 #include "CUnit/CUnit.h"
 #include "CUnit/Basic.h"
 #include "unit_test.h"
+#include "solvpile.h"
 #include "pile.h"
 
 /***************** tests pour les piles *************************/
