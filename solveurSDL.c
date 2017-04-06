@@ -107,7 +107,7 @@ int main()
 	solvpile *soltrouve=NULL;
 	soltrouve=solveur(g,solution,0,1,soltrouve);
 	solution=reverse(minpile(soltrouve));
-		int nbr_mvm=pilelen(solution);
+	int nbr_mvm=pilelen(solution);
 	for(int i=0;i<nbr_mvm;i++){
 		char couleuractu=getcolor(solution)[i];
 		drawRectangle(ecran,10,10,80,255,255,255);

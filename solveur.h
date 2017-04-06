@@ -18,20 +18,21 @@
 grid copy(grid g);
 /**
 *	\fn bool choixpertinent(grid g,char c)
-*	\brief 
-*	\param g la grille à copier
-*	\param c couleur 
-*	\return bool  
+*	\brief tester si la couleur c permet d'avoir une tâche plus grande
+*	\param g la grille à résoudre
+*	\param c la couleur à tester
+*	\return bool true si la grille a une tâche plus grande en changeant la couleur de la tâche à c et
+	false sinon
 */
 bool choixpertinent(grid g,char c);
 /**
 *	\fn solvpile *solveur(grid g,pile *solution,int prof,int profmax,solvpile* soltrouve)
-*	\brief 
-*	\param g la grille
-*	\param solution 
+*	\brief résoudre la grille g
+*	\param g la grille à résoudre
+*	\param solution une pile contenant une solution de la grille
 *	\param prof 
 *	\param profmax 
-*	\param soltrouve 
-*	\return solvpile *
+*	\param soltrouve pile de solutions où on stocke les solutions
+*	\return solvpile * adresse d'une pile de solutions
 */
 solvpile *solveur(grid g,pile *solution,int prof,int profmax,solvpile* soltrouve);

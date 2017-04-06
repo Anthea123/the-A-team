@@ -24,14 +24,17 @@ pile.o:pile.c pile.h
 	
 solvpile.o:solvpile.c solvpile.h pile.h
 	${CC} ${CFLAGS}  -c solvpile.c
+
+loop_game.o: loop_game.c loop_game.h grid_color.h
+	${CC} ${CFLAGS}  -c loop_game.c
 	
-mainsolveur.o: mainsolveur.c solveur.h  grid_color.h pile.h solvpile.h
+mainsolveur.o: mainsolveur.c solveur.h loop_game.h grid_color.h pile.h solvpile.h
 	${CC} ${CFLAGS}  -c mainsolveur.c
 	
 solveur.o:solveur.c solveur.h grid_color.h pile.h solvpile.h
 	${CC} ${CFLAGS}  -c solveur.c
 	
-exsolveur:solveur.o mainsolveur.o grid_color.o pile.o solvpile.o
+exsolveur:solveur.o mainsolveur.o grid_color.o pile.o solvpile.o loop_game.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 	
 unit_test.o:unit_test.c unit_test.h solveur.h pile.h solvpile.h grid_color.h
