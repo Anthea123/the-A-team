@@ -61,7 +61,6 @@ pile* minpile(solvpile* p)
 	return min;
 }
 
-
 void solvpop(solvpile** pp) 
 {
 	solvpile* tmp=(*pp)->next;
