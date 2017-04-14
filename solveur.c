@@ -57,26 +57,21 @@ bool choixpertinent(grid g,char c)
 }
 
 solvpile* solveur(grid g,pile *solution,int prof,int profmax,solvpile* soltrouve){
-	if(prof==profmax){
-		solution=NULL;
-		prof=0;
-		return soltrouve;
-	}
 	for(int i=0;i<6;i++){
-		if(choixpertinent(g,couleurs[i]) && prof<profmax){
+		if(choixpertinent(g,couleurs[i]) ){
 			grid g2=copy(g);
 			push(&solution,couleurs[i]);
 			detect_flood(&g2,0,0,g.array[0][0]);
 			change_color(&g2,couleurs[i]);
 			refresh_grid(&g2);
 			if(test_same_colour(&g2)){
-				solvpush(&soltrouve,solution);
-				profmax=prof;
-				prof=0;
+				if(pilelen(solvget_head(soltrouve)) > pilelen(solution) || solvest_vide(soltrouve))
+				{solvpush(&soltrouve,solution);
+				print_pile(solution);
+				solution=NULL;
+				}
 			}
-			else {
-				prof++;
-				profmax++;
+			else{
 				soltrouve=solveur(g2,solution,prof,profmax,soltrouve);
 			}
 			free_grid(&g2);

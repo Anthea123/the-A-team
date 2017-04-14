@@ -37,11 +37,13 @@ int main(int argc, char *argv[]){
 	pile *solution=NULL;
 	solvpile *soltrouve=NULL;
 
-	soltrouve=solveur(g1,solution,0,1,soltrouve);
+	soltrouve=solveur(g1,solution,0,g1.size*g1.size,soltrouve);
 	pile * p = reverse(minpile(soltrouve));
 
 	printf("Solution:\n");
 	print_pile(p);
+	//printf("pile des solutions\n");
+	//print_solvpile(soltrouve);
 	printf("\n");
 
 	game2(&g1, p);
