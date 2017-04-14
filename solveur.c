@@ -12,6 +12,7 @@
 #include "pile.h"
 #include "solvpile.h"
 
+
 char couleurs[6]={'B','V','R','J','M','G'};
 
 grid copy(grid g)
@@ -56,7 +57,12 @@ bool choixpertinent(grid g,char c)
 	return false;
 }
 
-solvpile* solveur(grid g,pile *solution,int prof,int profmax,solvpile* soltrouve){
+solvpile* solveur(grid g,pile *solution,solvpile* soltrouve, int *iter){
+	if(*iter > 10000){
+		//printf("iter: %d\n", *iter);
+		return soltrouve;
+	}
+	*iter = *iter+1;
 	for(int i=0;i<6;i++){
 		if(choixpertinent(g,couleurs[i]) ){
 			grid g2=copy(g);
@@ -72,7 +78,7 @@ solvpile* solveur(grid g,pile *solution,int prof,int profmax,solvpile* soltrouve
 				}
 			}
 			else{
-				soltrouve=solveur(g2,solution,prof,profmax,soltrouve);
+				soltrouve=solveur(g2,solution,soltrouve, iter);
 			}
 			free_grid(&g2);
 		}

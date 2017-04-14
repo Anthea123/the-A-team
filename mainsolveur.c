@@ -37,7 +37,9 @@ int main(int argc, char *argv[]){
 	pile *solution=NULL;
 	solvpile *soltrouve=NULL;
 
-	soltrouve=solveur(g1,solution,0,g1.size*g1.size,soltrouve);
+	int iter = 0;
+
+	soltrouve=solveur(g1,solution,soltrouve, &iter);
 	pile * p = reverse(minpile(soltrouve));
 
 	printf("Solution:\n");
