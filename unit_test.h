@@ -182,5 +182,7 @@ bool test_egalite(grid g1, grid g2);
 */
 void test_copy(void);
 
+void test_solveur(void);
+
 
 #endif

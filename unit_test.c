@@ -4,6 +4,7 @@
 #include "solvpile.h"
 #include "pile.h"
 
+
 /***************** tests pour les piles *************************/
 
 void test_init_pile(void){
@@ -1002,7 +1003,6 @@ bool test_egalite(grid g1, grid g2){
 		for(int i = 0; i < g1.size; i = i+1){
 			for(int j = 0; j < g1.size; j = j+1){
 				if((g1.array[i][j] != g2.array[i][j]) || (g1.belong[i][j] != g2.belong[i][j])){
-					/*printf("%d, %d: %c, %c; %d, %d\n", i, j, g1.array[i][j], g2.array[i][j], g1.belong[i][j], g2.belong[i][j]);*/
 					return false;
 				}
 			}
@@ -1033,5 +1033,98 @@ void test_copy(void){
 	free_grid(&g5);
 	free_grid(&g6);
 }
+
+void test_solveur(void){
+	grid g1 = init_grid(0);
+	grid g2 = init_grid(5);
+	grid g3 = init_grid(20);
+	grid g4 = init_grid(0);
+
+	int iter = 0;
+
+	solvpile *soltrouve1 = init_solvpile();
+	solvpile *soltrouve2 = init_solvpile();
+	solvpile *soltrouve3 = init_solvpile();
+	solvpile *soltrouve4 = init_solvpile();
+
+	pile * solution1 = init_pile();
+	pile * solution2 = init_pile();
+	pile * solution3 = init_pile();
+	pile * solution4 = init_pile();
+
+	soltrouve1 = solveur(g1, solution1, soltrouve1, &iter);
+	iter = 0;
+	soltrouve2 = solveur(g2, solution2, soltrouve2, &iter);
+	iter = 0;
+	soltrouve3 = solveur(g3, solution3, soltrouve3, &iter);
+	iter = 0;
+	soltrouve4 = solveur(g4, solution4, soltrouve4, &iter);
+
+	solution1 = reverse(minpile(soltrouve1));
+	solution2 = reverse(minpile(soltrouve2));
+	solution3 = reverse(minpile(soltrouve3));
+	solution4 = reverse(minpile(soltrouve4));
+
+	while(!est_vide(solution1)){
+		detect_flood(&g1, 0, 0, g1.array[0][0]);
+		change_color(&g1, get_head(solution1));
+		refresh_grid(&g1);
+		pop(&solution1);
+	}	
+	while(!est_vide(solution2)){
+		detect_flood(&g2, 0, 0, g2.array[0][0]);
+		change_color(&g2, get_head(solution2));
+		refresh_grid(&g2);
+		pop(&solution2);
+	}	
+	while(!est_vide(solution3)){
+		detect_flood(&g3, 0, 0, g3.array[0][0]);
+		change_color(&g3, get_head(solution3));
+		refresh_grid(&g3);
+		pop(&solution3);
+	}
+	while(!est_vide(solution4)){
+		detect_flood(&g4, 0, 0, g4.array[0][0]);
+		change_color(&g4, get_head(solution4));
+		refresh_grid(&g4);
+		pop(&solution4);
+	}
+
+	CU_ASSERT(test_same_colour(&g1) == true);
+	CU_ASSERT(test_same_colour(&g2) == true);
+	CU_ASSERT(test_same_colour(&g3) == true);
+	CU_ASSERT(test_same_colour(&g4) == true);
+
+
+	free_grid(&g1);
+	free_grid(&g2);
+	free_grid(&g3);
+	free_grid(&g4);
+
+	free_pile(&solution1);
+	free_pile(&solution2);
+	free_pile(&solution3);
+	free_pile(&solution4);
+	
+	free_solvpile(&soltrouve1);
+	free_solvpile(&soltrouve2);
+	free_solvpile(&soltrouve3);
+	free_solvpile(&soltrouve4);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

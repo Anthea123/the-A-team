@@ -62,6 +62,12 @@ solvpile* solveur(grid g,pile *solution,solvpile* soltrouve, int *iter){
 		//printf("iter: %d\n", *iter);
 		return soltrouve;
 	}
+	if(g.size <= 1){
+		printf("taille non valide\n");
+		push(&solution, g.array[0][0]);
+		solvpush(&soltrouve, solution);
+		return soltrouve;
+	}
 	*iter = *iter+1;
 	for(int i=0;i<6;i++){
 		if(choixpertinent(g,couleurs[i]) ){

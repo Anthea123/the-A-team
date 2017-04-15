@@ -37,6 +37,7 @@ int main(){
 /***************** tests pour le solveur ************************/
     
     CU_add_test(suite3, "copy", test_copy);
+    CU_add_test(suite3, "solveur", test_solveur);
 
     CU_basic_set_mode(CU_BRM_VERBOSE);
 	CU_basic_run_tests();
