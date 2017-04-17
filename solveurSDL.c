@@ -84,7 +84,7 @@ int main()
 						 		if(fleche%3==2){
 									 return 0;
 								}
-								else compteur=0; 
+								else compteur=0;
 								break;
 				 				case SDLK_ESCAPE: /* Appui sur la touche Echap, on arrête le programme */return 0;
 				 				default : ;
@@ -105,11 +105,12 @@ int main()
 
 		pile *solution=NULL;
 		solvpile *soltrouve=NULL;
-		soltrouve=solveur(g,solution,0,1,soltrouve);
+		int iter=0;
+		soltrouve=solveur(g,solution,soltrouve,&iter,0);
 		solution=reverse(minpile(soltrouve));
 		int nbr_mvm=pilelen(solution);
-		for(int i=0;i<nbr_mvm;i++){
-			char couleuractu=getcolor(solution)[i];
+		while(solution!=NULL){
+			char couleuractu=get_head(solution);
 			drawRectangle(ecran,10,10,80,255,255,255);
 			drawRectangle(ecran,120,10,90,255,255,255);
 			sprintf(mouvement,"%d/%d",nbcoups,cinit);
@@ -124,6 +125,7 @@ int main()
 				SDL_Delay(2500);
 				break;
 			}
+			solution=get_next(solution);
 		}
 		if(test_same_colour(&g)) {
 			fillScreen(ecran, 255,255,255);
@@ -131,6 +133,9 @@ int main()
 			finjeu(ecran,police,0,nbr_mvm-1);
 			SDL_Delay(2500);
 		}
+		free_pile(&solution);
+		free_solvpile(&soltrouve);
+		free_grid(&g);	
 		TTF_CloseFont(police);
 		TTF_Quit();
 		SDL_Quit();
