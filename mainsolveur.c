@@ -26,7 +26,7 @@ void game2(grid *g, pile *p){
 
 int main(int argc, char *argv[]){
 	if(argc != 2){
-		perror("arguments");
+		printf("Il faut rentrer une taille en argument");
 		exit(1);
 	}
 
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]){
 
 	int iter = 0;
 
-	soltrouve=solveur(g1,solution,soltrouve, &iter);
+	soltrouve=solveur(g1,solution,soltrouve, &iter, 0);
 	pile * p = reverse(minpile(soltrouve));
 
 	printf("Solution:\n");

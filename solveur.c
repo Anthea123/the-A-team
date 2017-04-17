@@ -57,8 +57,8 @@ bool choixpertinent(grid g,char c)
 	return false;
 }
 
-solvpile* solveur(grid g,pile *solution,solvpile* soltrouve, int *iter){
-	if(*iter > 10000){
+solvpile* solveur(grid g,pile *solution,solvpile* soltrouve, int *iter, int nbcoups){
+	if(*iter > 1000000){
 		//printf("iter: %d\n", *iter);
 		return soltrouve;
 	}
@@ -77,14 +77,16 @@ solvpile* solveur(grid g,pile *solution,solvpile* soltrouve, int *iter){
 			change_color(&g2,couleurs[i]);
 			refresh_grid(&g2);
 			if(test_same_colour(&g2)){
-				if(pilelen(solvget_head(soltrouve)) > pilelen(solution) || solvest_vide(soltrouve))
+				if(nbcoups> pilelen(solution) || solvest_vide(soltrouve))
 				{solvpush(&soltrouve,solution);
+				nbcoups = pilelen(solvget_head(soltrouve));
+				printf("Solution en %d coups:\n", nbcoups);
 				print_pile(solution);
 				solution=NULL;
 				}
 			}
 			else{
-				soltrouve=solveur(g2,solution,soltrouve, iter);
+				soltrouve=solveur(g2,solution,soltrouve, iter, nbcoups);
 			}
 			free_grid(&g2);
 		}

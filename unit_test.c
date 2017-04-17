@@ -1052,13 +1052,13 @@ void test_solveur(void){
 	pile * solution3 = init_pile();
 	pile * solution4 = init_pile();
 
-	soltrouve1 = solveur(g1, solution1, soltrouve1, &iter);
+	soltrouve1 = solveur(g1, solution1, soltrouve1, &iter, 5*g1.size);
 	iter = 0;
-	soltrouve2 = solveur(g2, solution2, soltrouve2, &iter);
+	soltrouve2 = solveur(g2, solution2, soltrouve2, &iter, 5*g2.size);
 	iter = 0;
-	soltrouve3 = solveur(g3, solution3, soltrouve3, &iter);
+	soltrouve3 = solveur(g3, solution3, soltrouve3, &iter, 5*g3.size);
 	iter = 0;
-	soltrouve4 = solveur(g4, solution4, soltrouve4, &iter);
+	soltrouve4 = solveur(g4, solution4, soltrouve4, &iter, 5*g4.size);
 
 	solution1 = reverse(minpile(soltrouve1));
 	solution2 = reverse(minpile(soltrouve2));

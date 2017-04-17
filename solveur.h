@@ -35,4 +35,4 @@ bool choixpertinent(grid g,char c);
 *	\param soltrouve pile de solutions où on stocke les solutions
 *	\return solvpile * adresse d'une pile de solutions
 */
-solvpile *solveur(grid g,pile *solution,solvpile* soltrouve, int *iter);
+solvpile *solveur(grid g,pile *solution,solvpile* soltrouve, int *iter, int nbcoups);
