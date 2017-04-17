@@ -103,86 +103,38 @@ int main()
 		SDL_BlitSurface(texte, NULL, ecran,&position);
 		SDL_Flip(ecran);
 
-	pile *solution=NULL;
-	solvpile *soltrouve=NULL;
-	soltrouve=solveur(g,solution,0,1,soltrouve);
-	solution=reverse(minpile(soltrouve));
-	int nbr_mvm=pilelen(solution);
-	for(int i=0;i<nbr_mvm;i++){
-		char couleuractu=getcolor(solution)[i];
-		drawRectangle(ecran,10,10,80,255,255,255);
-		drawRectangle(ecran,120,10,90,255,255,255);
-		sprintf(mouvement,"%d/%d",nbcoups,cinit);
-		texte = TTF_RenderText_Shaded(police, mouvement,couleurBlanche,couleurNoire);
-		SDL_BlitSurface(texte, NULL, ecran,&position);
-		jouer(ecran,g,couleuractu);
-		SDL_Delay(2000);
-		nbcoups--;
-		if(nbcoups<0 && !test_same_colour(&g)){
-			fillScreen(ecran, 255,255,255);
-			printgrille(ecran,g);finjeu(ecran,police,1,nbr_mvm-1);
-			SDL_Delay(2500);
-			break;
-		}
-	}
-	if(test_same_colour(&g)) {
-		fillScreen(ecran, 255,255,255);
-		printgrille(ecran,g);
-		finjeu(ecran,police,0,nbr_mvm-1);
-		SDL_Delay(2500);
-		}
-
-			/*
-	while(solution!=NULL){
-	  couleuractu=solmin->val;
-	  jouer(ecran,g,couleuractu);
-	  solution=solution->next;
-
-			SDL_Delay(5000);
-
-		}
-
-
-	  	while (continuer )
-		{
-			SDL_WaitEvent(&event);
-			switch(event.type)
-			{
-				case SDL_QUIT:
-					continuer = 0;
-					break;
-				case SDL_KEYDOWN:
-					switch (event.key.keysym.sym)
-					{
-						case SDLK_ESCAPE:  Appui sur la touche Echap, on arrête le programme
-							continuer = 0;
-							break;
-						default:break;
-					}
-				case SDL_MOUSEBUTTONUP:
-							if (event.button.button == SDL_BUTTON_LEFT)
-							{
-								if(event.button.y>710 && event.button.y<780)
-								{
-									nbr_mvm++;
-									);
-
-
-									if(event.button.x<130 && event.button.x>60){	jouer(ecran,g,'V'); break;}
-									if(event.button.x<210 && event.button.x>140){	jouer(ecran,g,'R'); break;	}
-									if(event.button.x<290 && event.button.x>220){	jouer(ecran,g,'B'); break;}
-									if(event.button.x<370 && event.button.x>300){	jouer(ecran,g,'J'); break;}
-									if(event.button.x<450 && event.button.x>380){jouer(ecran,g,'M'); break;}
-									if(event.button.x<550 && event.button.x>460){jouer(ecran,g,'G'); break;}
-								}
-							}
+		pile *solution=NULL;
+		solvpile *soltrouve=NULL;
+		soltrouve=solveur(g,solution,0,1,soltrouve);
+		solution=reverse(minpile(soltrouve));
+		int nbr_mvm=pilelen(solution);
+		for(int i=0;i<nbr_mvm;i++){
+			char couleuractu=getcolor(solution)[i];
+			drawRectangle(ecran,10,10,80,255,255,255);
+			drawRectangle(ecran,120,10,90,255,255,255);
+			sprintf(mouvement,"%d/%d",nbcoups,cinit);
+			texte = TTF_RenderText_Shaded(police, mouvement,couleurBlanche,couleurNoire);
+			SDL_BlitSurface(texte, NULL, ecran,&position);
+			jouer(ecran,g,couleuractu);
+			SDL_Delay(2000);
+			nbcoups--;
+			if(nbcoups<0 && !test_same_colour(&g)){
+				fillScreen(ecran, 255,255,255);
+				printgrille(ecran,g);finjeu(ecran,police,1,nbr_mvm-1);
+				SDL_Delay(2500);
+				break;
 			}
-
-		}*/
+		}
+		if(test_same_colour(&g)) {
+			fillScreen(ecran, 255,255,255);
+			printgrille(ecran,g);
+			finjeu(ecran,police,0,nbr_mvm-1);
+			SDL_Delay(2500);
+		}
 		TTF_CloseFont(police);
 		TTF_Quit();
 		SDL_Quit();
-  	}
+		}
 
-		return 0;
+	return 0;
 }

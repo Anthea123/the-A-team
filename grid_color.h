@@ -23,7 +23,7 @@ typedef struct grid grid;
 struct grid
 {
 	char **array;
-        int **belong;
+    int **belong;
 	int size;
 
 };

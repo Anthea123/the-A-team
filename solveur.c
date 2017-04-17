@@ -23,8 +23,8 @@ grid copy(grid g)
 	{
 		for(int j=0;j<n;j++)
 		{
-					g1.array[i][j]=g.array[i][j];
-					g1.belong[i][j]=g.belong[i][j];
+			g1.array[i][j]=g.array[i][j];
+			g1.belong[i][j]=g.belong[i][j];
 		}
 	}
 	return g1;
@@ -32,8 +32,9 @@ grid copy(grid g)
 
 bool choixpertinent(grid g,char c)
 {
-	if(g.array[0][0]==c)
+	if(g.array[0][0]==c){
 		return false;
+	}
 
 	int n=g.size;
 	detect_flood(&g,0,0,g.array[0][0]);
@@ -49,7 +50,7 @@ bool choixpertinent(grid g,char c)
 			if(g1.belong[i][j]!=g.belong[i][j]){
 				free_grid(&g1);
 				return true;
-				}
+			}
 		}
 	}
 
@@ -57,8 +58,17 @@ bool choixpertinent(grid g,char c)
 	return false;
 }
 
+/*
+on parcourt le tableau des couleurs avec la boucle for, et si on trouve une couleur adjacente
+à la composante connexe avec choixpertinent, on empile la couleur dans la pile solution et 
+on copie la grille g dans g2 sur laquelle on effectue les changements. Si après cela toutes les cases
+de g2 sont de la même couleur, on empile solution dans la pile des solutions soltrouve. Sinon, on
+rappelle la fonction solveur pour la grille g2. À la fin, on libère g2 et on retourne soltrouve.
+Pour limiter le temps d'exécution, on limite le nombre d'itérations à 100000.
+*/
+
 solvpile* solveur(grid g,pile *solution,solvpile* soltrouve, int *iter, int nbcoups){
-	if(*iter > 1000000){
+	if(*iter > 100000){
 		//printf("iter: %d\n", *iter);
 		return soltrouve;
 	}
@@ -78,11 +88,12 @@ solvpile* solveur(grid g,pile *solution,solvpile* soltrouve, int *iter, int nbco
 			refresh_grid(&g2);
 			if(test_same_colour(&g2)){
 				if(nbcoups> pilelen(solution) || solvest_vide(soltrouve))
-				{solvpush(&soltrouve,solution);
-				nbcoups = pilelen(solvget_head(soltrouve));
-				printf("Solution en %d coups:\n", nbcoups);
-				print_pile(solution);
-				solution=NULL;
+				{
+					solvpush(&soltrouve,solution);
+					nbcoups = pilelen(solvget_head(soltrouve));
+					printf("Solution en %d coups:\n", nbcoups);
+					print_pile(solution);
+					solution=NULL;
 				}
 			}
 			else{

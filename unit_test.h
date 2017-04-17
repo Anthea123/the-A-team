@@ -182,6 +182,12 @@ bool test_egalite(grid g1, grid g2);
 */
 void test_copy(void);
 
+/**
+*	 \fn void test_solveur(void)
+*	 \brief test unitaire de la fonction solveur
+*	 \param  void aucun
+*	 \return void fonction de type void
+*/
 void test_solveur(void);
 
 
