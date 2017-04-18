@@ -73,7 +73,7 @@ void jouer(SDL_Surface *ecran,grid g,char c);
 *	\param nbcoups le nombre de coups que l'utilisateur veut choisir pour la grille
 *	\return void c'est une fonction de type void
 */
-void afficherMenu(SDL_Surface *ecran,int size,int nbcoups);
+void afficherMenu(SDL_Surface *ecran,int size);
 
 /**
 *	\fn void initialise()
@@ -95,7 +95,7 @@ void dessinerfleche(SDL_Surface *ecran,int fleche);
 *	\param *ecran adresse de l'ecran
 *	\param police police pour ecrire les message
 *	\param WL pour designer (win or lose )
-*	\param nbr_mvm le nombre de mouvements pour gagner la partie 
+*	\param nbr_mvm le nombre de mouvements pour gagner la partie
 *	\return void c'est une fonction de type void
 */
 int finjeu(SDL_Surface *ecran,TTF_Font *police,int WL,int nbr_mvm);

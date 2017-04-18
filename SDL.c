@@ -70,43 +70,36 @@ void jouer(SDL_Surface *ecran,grid g,char c){
 	refresh_grid(&g) ;
 }
 
-void afficherMenu(SDL_Surface *ecran,int size,int nbcoups){
+void afficherMenu(SDL_Surface *ecran,int size){
 	SDL_Rect position;
 	char sizeg[100];
-	char coups[100];
 	SDL_Color couleurNoire;
-	
-	couleurNoire.r=0; 
+
+	couleurNoire.r=0;
 	couleurNoire.g=0;
 	couleurNoire.b=0;
-	
+
 	TTF_Font *police = NULL;
 	police = TTF_OpenFont("LOTB.ttf", 15);
 	fillScreen(ecran, 255,255,255);
-	SDL_Surface *menu1=NULL,*menu2=NULL,*menu3=NULL;
+	SDL_Surface *menu1=NULL,*menu2=NULL;
 	sprintf(sizeg,"Entrer la taille de la grille :  <|  %d  |>",size);
 	menu1=TTF_RenderText_Blended(police,sizeg,couleurNoire);
 	position.x = 30;
 	position.y = 300;
 	SDL_BlitSurface(menu1, NULL, ecran,&position);
 
-	sprintf(coups,"Entrer le nombre de coups autorsisees  :  <|  %d  |>",nbcoups);
-	menu2=TTF_RenderText_Blended(police,coups,couleurNoire);
-	position.x = 30;
-	position.y = 400;
-	SDL_BlitSurface(menu2, NULL, ecran,&position);
-
-	menu3=TTF_RenderText_Blended(police, "QUIT",couleurNoire);
+	menu2=TTF_RenderText_Blended(police, "QUIT",couleurNoire);
 	position.x = 30;
 	position.y = 500;
-	SDL_BlitSurface(menu3, NULL, ecran,&position);
+	SDL_BlitSurface(menu2, NULL, ecran,&position);
 	SDL_Flip(ecran);
 
 }
 
 void initialise(){
 	const SDL_VideoInfo* info = NULL;
-	
+
 	if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
 		/* Failed, exit. */
 		fprintf( stderr, "Video initialization failed: %s\n", SDL_GetError( ) );
@@ -117,9 +110,9 @@ void initialise(){
 		fprintf(stderr, "Erreur d'initialisation de TTF_Init : %s\n", TTF_GetError());
 		exit(EXIT_FAILURE);
   	}
-  
+
 	info = SDL_GetVideoInfo( );
-	
+
 	if( !info ) {
 		/* This should probably never happen. */
 		fprintf( stderr, "Video query failed: %s\n", SDL_GetError( ) );
@@ -128,21 +121,14 @@ void initialise(){
 }
 
 void dessinerfleche(SDL_Surface *ecran,int fleche){
-	switch(fleche%3){
+	switch(fleche%2){
     	case 0:
 			drawRectangle(ecran,10,300,10,0,0,0);
-			drawRectangle(ecran,10,400,10,255,255,255);
 			drawRectangle(ecran,10,500,10,255,255,255);
 			break;
     	case 1:
-			drawRectangle(ecran,10,400,10,0,0,0);
-			drawRectangle(ecran,10,500,10,255,255,255);
-			drawRectangle(ecran,10,300,10,255,255,255);
-			break;
-    	case 2:
 			drawRectangle(ecran,10,500,10,0,0,0);
 			drawRectangle(ecran,10,300,10,255,255,255);
-			drawRectangle(ecran,10,400,10,255,255,255);
 			break;
   	}
 }
@@ -154,11 +140,11 @@ int finjeu(SDL_Surface *ecran,TTF_Font *police,int WL,int nbr_mvm){
 	couleurRouge.r=255;
 	couleurRouge.g=0;
 	couleurRouge.b=0;
-	
+
 	couleurBleu.r=255;
 	couleurBleu.g=0;
 	couleurBleu.b=255;
-	
+
 	if(WL==0){
 		SDL_Surface *wintext=NULL;
 		police = TTF_OpenFont("LOTB.ttf", 15);
