@@ -23,6 +23,8 @@
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
 * Makefile : Permet de générer les exécutables et la documentation
 * Rapport_Lot_C.pdf : Rapport du Lot C
+* color_flood.gan : diagramme de Gantt du projet fait avec le logiciel GanttProject
+* impression diagramme de Gantt des tâches et des ressources si on n'utilise pas le même logiciel Gantt
 
 
 ###Instructions d'installation
