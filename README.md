@@ -23,6 +23,8 @@
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
 * Makefile : Permet de générer les exécutables et la documentation
 * Rapport_Lot_C.pdf : Rapport du Lot C
+* color_flood.gan : diagramme de Gantt du projet fait avec le logiciel GanttProject
+* gantt_ressources.png et gantt_tâches.png : impression diagramme de Gantt des tâches et des ressources si on n'utilise pas le même logiciel Gantt
 
 
 ###Instructions d'installation
@@ -65,7 +67,7 @@ Pour nettoyer le répertoire:
 
 ###Instructions d'utilisation du solveur en mode graphique 
 
-Pour le Solveur en mode graphique pour sélectionner un choix du menu on utilise les fleches haut et bas du clavier et pour choisir la taille on utilise les fleches gauche et droite et puis Espace pour selectionner notre choix, le jeu se joue ensuite tout seul.
+Pour le Solveur en mode graphique pour sélectionner un choix du menu on utilise les fleches haut et bas du clavier et pour choisir la taille on utilise les fleches gauche et droite et puis Espace pour selectionner notre choix, le jeu se joue ensuite tout seul. On ne peut quitter le jeu que si le jeu et résolu et fini.
 
 Pour compiler et exécuter le solveur en mode texte:
 
