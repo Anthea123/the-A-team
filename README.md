@@ -67,7 +67,7 @@ Pour nettoyer le répertoire:
 
 ###Instructions d'utilisation du solveur en mode graphique 
 
-Pour le Solveur en mode graphique pour sélectionner un choix du menu on utilise les fleches haut et bas du clavier et pour choisir la taille on utilise les fleches gauche et droite et puis Espace pour selectionner notre choix, le jeu se joue ensuite tout seul.
+Pour le Solveur en mode graphique pour sélectionner un choix du menu on utilise les fleches haut et bas du clavier et pour choisir la taille on utilise les fleches gauche et droite et puis Espace pour selectionner notre choix, le jeu se joue ensuite tout seul. On ne peut quitter le jeu que si le jeu et résolu et fini.
 
 Pour compiler et exécuter le solveur en mode texte:
 
