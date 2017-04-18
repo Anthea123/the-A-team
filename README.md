@@ -24,7 +24,7 @@
 * Makefile : Permet de générer les exécutables et la documentation
 * Rapport_Lot_C.pdf : Rapport du Lot C
 * color_flood.gan : diagramme de Gantt du projet fait avec le logiciel GanttProject
-* impression diagramme de Gantt des tâches et des ressources si on n'utilise pas le même logiciel Gantt
+* gantt_ressources.png et gantt_tâches.png : impression diagramme de Gantt des tâches et des ressources si on n'utilise pas le même logiciel Gantt
 
 
 ###Instructions d'installation
