@@ -1,5 +1,6 @@
 #include "loop_game.h"
 #include "grid_color.h"
+#include "solveur.h"
 
 /*	on demande à l'utilisateur de saisir une couleur , si celle ci n'est pas valide et 
 	tant que l'utilisateur ne quitte pas avec 'Q' on lui redemande de sasir une couleur
@@ -43,18 +44,29 @@ int get_size()
 /*	on demande à l'utilisateur de saisir un nombre de coups , le nombre de coups
 	minimal est 1 tant que l'utilisateur ne saisit pas un nombre de coups valide
 	on lui redemande de sasir un nombre de coups*/
-int get_nombre_coups()
+int get_nombre_coups(grid g)
 {
-	int nb;
 
-	printf("Entrer le nombre de coups autorisé:\n");
+	/*printf("Entrer le nombre de coups autorisé:\n");
 	scanf("%d", &nb);
 	
 	while(nb < 1)
 	{
 		printf("Entrer le nombre de coups autorisé:\n");
 		scanf("%d", &nb);
-	}
+	}*/
+
+	int nb;
+
+	pile* solution = init_pile();
+	solvpile * soltrouve = init_solvpile();
+
+	int iter = 0;
+
+	soltrouve = solveur(g,solution,soltrouve, &iter, 0);
+	pile * p = reverse(minpile(soltrouve));
+
+	nb = pilelen(p);
 
 	return nb;
 }
@@ -68,7 +80,7 @@ void turn(int *coups_restants, int *nbr_mvm, grid *g, char c)
 	*nbr_mvm = *nbr_mvm+1;
 	*coups_restants = *coups_restants-1;
 	grid_print(g);
-	/*printf("Il vous reste %d coups\n", *coups_restants);*/
+	printf("Il vous reste %d coups\n", *coups_restants);
 	detect_flood(g, 0, 0, g->array[0][0]);
 }
 
@@ -113,12 +125,14 @@ void game()
 
 	size = get_size();
 
-	 
-        coups_restants = get_nombre_coups();
-
 	g = init_grid(size);
 
+	coups_restants = get_nombre_coups(g);
+
+	printf("Vous avez %d coups pour résoudre cette grille\n", coups_restants);
+
 	grid_print(&g);
+
 	detect_flood(&g, 0, 0, g.array[0][0]);
 		
 	while(!test_same_colour(&g) && coups_restants > 0 && !test_quit){

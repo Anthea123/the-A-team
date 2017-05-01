@@ -10,6 +10,7 @@
 #define _LOOP_GAME_H
 
 #include "grid_color.h"
+#include "solveur.h"
 
 /**
 *	\fn char get_colour()
@@ -30,7 +31,7 @@ int get_size();
 *	\brief demande la saisie du nombre de coups autorisé
 *	\return l'entier saisi
 */
-int get_nombre_coups();
+int get_nombre_coups(grid g);
 
 /**
 *	\fn void turn(int *coups_restants, int *nbr_mvm, grid *g, char c)

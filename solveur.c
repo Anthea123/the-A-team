@@ -91,8 +91,8 @@ solvpile* solveur(grid g,pile *solution,solvpile* soltrouve, int *iter, int nbco
 				{
 					solvpush(&soltrouve,solution);
 					nbcoups = pilelen(solvget_head(soltrouve));
-					printf("Solution en %d coups:\n", nbcoups);
-					print_pile(solution);
+					//printf("Solution en %d coups:\n", nbcoups);
+					//print_pile(solution);
 					solution=NULL;
 				}
 			}

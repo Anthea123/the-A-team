@@ -4,7 +4,7 @@ CC=gcc
 CFLAGS=-std=c11 -Wall -Wextra -g
 LDFLAGS=-lm -lcunit
 
-all: tests exsolveur solveurSDL
+all: tests exsolveur solveurSDL jeu
 
 
 grid_color.o: grid_color.c grid_color.h
@@ -25,8 +25,14 @@ pile.o:pile.c pile.h
 solvpile.o:solvpile.c solvpile.h pile.h
 	${CC} ${CFLAGS}  -c solvpile.c
 
-loop_game.o: loop_game.c loop_game.h grid_color.h
+loop_game.o: loop_game.c loop_game.h grid_color.h solveur.h pile.h solvpile.h
 	${CC} ${CFLAGS}  -c loop_game.c
+
+main_jeu.o: main_jeu.c loop_game.h solveur.h 
+	${CC} ${CFLAGS}  -c main_jeu.c
+
+jeu: main_jeu.o loop_game.o	solveur.o pile.o solvpile.o grid_color.o
+	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 	
 mainsolveur.o: mainsolveur.c solveur.h loop_game.h grid_color.h pile.h solvpile.h
 	${CC} ${CFLAGS}  -c mainsolveur.c
