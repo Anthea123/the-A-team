@@ -15,6 +15,7 @@
 * unit_test.h : Contient les prototypes des tests unitaires
 * loop_game.c : fonctions pour le déroulement du jeu
 * loop_game.h : Contient les prototypes des fonctions implémentées dans loop_game.c
+* main_jeu.c : Permet d'exécuter le jeu en mode texte
 * mainsolveur.c : Contient un jeu et la solution à ce jeu
 * main_test.c : Exécute les tests unitaires
 * SDL.c : fonctions de base pour le jeu en mode graphique
@@ -46,6 +47,9 @@ Pour l'interface graphique SDL:
 Pour compiler et exécuter le solveur en mode texte:
 
 `make ./exsolveur arg` où `arg` est la taille de la grille
+
+Pour compiler et exécuter le jeu en mode texte:
+`make ./jeu`
 
 Pour compiler et exécuter les tests:
 
