@@ -49,6 +49,7 @@ Pour compiler et exécuter le solveur en mode texte:
 `make ./exsolveur arg` où `arg` est la taille de la grille
 
 Pour compiler et exécuter le jeu en mode texte:
+
 `make ./jeu`
 
 Pour compiler et exécuter les tests:
