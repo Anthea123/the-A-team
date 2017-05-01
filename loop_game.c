@@ -41,9 +41,8 @@ int get_size()
     return s;
 }
 
-/*	on demande à l'utilisateur de saisir un nombre de coups , le nombre de coups
-	minimal est 1 tant que l'utilisateur ne saisit pas un nombre de coups valide
-	on lui redemande de sasir un nombre de coups*/
+/*	on calcule le nombre de coups nécessaire pour résoudre la grille à l'aide du 
+	solveur*/
 int get_nombre_coups(grid g)
 {
 

@@ -29,6 +29,7 @@ int get_size();
 /**
 *	\fn int get_nombre_coups()
 *	\brief demande la saisie du nombre de coups autorisé
+*	\param g la grille qu'on don't on veur savoir le nombre de coups nécessaire pour la résoudre
 *	\return l'entier saisi
 */
 int get_nombre_coups(grid g);
