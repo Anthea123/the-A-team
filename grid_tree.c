@@ -7,7 +7,7 @@
 *	\date 1 Mai 2017
 */
 #include "grid_tree.h"
-#define MAXFILS 10
+#define MAXFILS 5
 #define ARBREVIDE NULL
 
 typedef struct g_narbre 
@@ -65,10 +65,13 @@ void print_grid_tree(NArbre g)
 
 void free_grid_tree(NArbre g)
 {
-    int i;
-    free_grid(&g->g);
-    for(i=0;i<g->nbFils;i=i+1)
-    {
-        free_grid(&g->tabfils[i]->g);
-    }
+	free_grid(&g->g);
+
+	if(g->nbFils != 0){
+		for(int i = 0; i < g->nbFils; i = i+1){
+			free_grid_tree(g->tabfils[i]);
+		}
+	}
+
+	free(g);
 }
