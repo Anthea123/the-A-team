@@ -53,3 +53,13 @@ void print_grid_tree(NArbre g)
         grid_print(&g->tabfils[i]->g);
     }
 }
+
+void free_grid_tree(NArbre g)
+{
+    int i;
+    free_grid(&g->g);
+    for(i=0;i<g->nbFils;i=i+1)
+    {
+        free_grid(&g->tabfils[i]->g);
+    }
+}
