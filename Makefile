@@ -9,6 +9,9 @@ all: tests exsolveur solveurSDL jeu
 
 grid_color.o: grid_color.c grid_color.h
 	${CC} ${CFLAGS} -c grid_color.c
+	
+grid_tree.o: grid_tree.c grid_tree.h
+	${CC} ${CFLAGS} -c grid_tree.c
 
 SDL.o: SDL.c SDL.h grid_color.h
 	${CC} ${CFLAGS} -c SDL.c
