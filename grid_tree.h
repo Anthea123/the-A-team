@@ -34,7 +34,7 @@ NArbre nouvelNArbre(grid g);
 *	\param a la grille fille à rajouter à l'arbre
 *	\return NArbre arbre n-aire de grilles auquel a été rajouté la grille fils
 */
-NArbre ajoutFils(NArbre a, NArbre fils);
+void ajoutFils(NArbre a, NArbre fils);
 /**
 *	\fn void print_grid_tree(NArbre g)
 *	\brief afficher un arbre de grilles 
