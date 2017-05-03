@@ -45,11 +45,11 @@ void ajoutFils(NArbre a, NArbre fils)
 }
 
 int getnbFils(NArbre a){
-	return a.nbFils;
+	return a->nbFils;
 }
 
 grid getgrid(NArbre a){
-	return a.g;
+	return a->g;
 }
 
 void print_grid_tree(NArbre g)
