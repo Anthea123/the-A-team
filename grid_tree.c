@@ -30,9 +30,9 @@ NArbre nouvelNArbre(grid g)
     return res;
 }
 
-NArbre ajoutFils(NArbre a, NArbre fils) 
+void ajoutFils(NArbre a, NArbre fils) 
 {
-    NArbre res=a;
+    
     if (a!=ARBREVIDE) 
     {
         if (a->nbFils < MAXFILS) 
@@ -41,7 +41,7 @@ NArbre ajoutFils(NArbre a, NArbre fils)
             a->nbFils++;
         }
     }
-    return res;
+    
 }
 void print_grid_tree(NArbre g)
 {
