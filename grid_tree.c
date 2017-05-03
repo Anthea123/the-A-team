@@ -7,7 +7,7 @@
 *	\date 1 Mai 2017
 */
 #include "grid_tree.h"
-#define MAXFILS 10
+#define MAXFILS 5
 #define ARBREVIDE NULL
 
 typedef struct g_narbre 
