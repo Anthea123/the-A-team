@@ -43,6 +43,15 @@ NArbre ajoutFils(NArbre a, NArbre fils)
     }
     return res;
 }
+
+int getnbFils(NArbre a){
+	return a.nbFils;
+}
+
+grid getgrid(NArbre a){
+	return a.g;
+}
+
 void print_grid_tree(NArbre g)
 {
     int i;

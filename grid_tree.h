@@ -36,6 +36,28 @@ NArbre nouvelNArbre(grid g);
 */
 NArbre ajoutFils(NArbre a, NArbre fils);
 /**
+*	\fn int getnbFils(NArbre a)
+*	\brief obtenir le nombre de fils
+*	\param a arbre n-aire dont on veut connaître le nombre de fils
+*	\return int le nombre de fils de a
+*/
+int getnbFils(NArbre a);
+/**
+*	\fn grid getgrid(NArbre a)
+*	\brief obtenir la grille d'un arbre n-aire
+*	\param a arbre n-aire dont on veut obtenir la grille
+*	\return grid la grille du nœud a
+*/
+grid getgrid(NArbre a);
+/**
+*	\fn NArbre ajoutFils(NArbre a, NArbre fils)
+*	\brief ajouter une grille fille à l'arbre n-aire de grilles
+*	\param g la grille racine
+*	\param a la grille fille à rajouter à l'arbre
+*	\return NArbre arbre n-aire de grilles auquel a été rajouté la grille fils
+*/
+grid getgrid(NArbre a);
+/**
 *	\fn void print_grid_tree(NArbre g)
 *	\brief afficher un arbre de grilles 
 *	\param g la grille racine
