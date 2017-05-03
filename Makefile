@@ -43,13 +43,13 @@ solveur.o:solveur.c solveur.h grid_color.h pile.h solvpile.h
 exsolveur:solveur.o mainsolveur.o grid_color.o pile.o solvpile.o loop_game.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 	
-unit_test.o:unit_test.c unit_test.h solveur.h pile.h solvpile.h grid_color.h
+unit_test.o:unit_test.c unit_test.h solveur.h pile.h solvpile.h grid_color.h grid_tree.h
 	${CC} ${CFLAGS}  -c unit_test.c
 	
-main_test.o: main_test.c unit_test.h solveur.h pile.h solvpile.h grid_color.h
+main_test.o: main_test.c unit_test.h solveur.h pile.h solvpile.h grid_color.h grid_tree.h
 	${CC} ${CFLAGS}  -c main_test.c
 	
-tests: main_test.o unit_test.o grid_color.o pile.o solvpile.o solveur.o
+tests: main_test.o unit_test.o grid_color.o pile.o solvpile.o grid_tree.o solveur.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 	
 doc: Doxyfile 
