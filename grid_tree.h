@@ -42,6 +42,13 @@ NArbre ajoutFils(NArbre a, NArbre fils);
 *	\return void fonction d'affichage
 */
 void print_grid_tree(NArbre g);
+/**
+*	\fn void free_grid_tree(NArbre g)
+*	\brief libérer la mémoire accupée par un arbre de grilles 
+*	\param g la grille racine de l'arbre
+*	\return void fonction de libération de mémoire
+*/
+void free_grid_tree(NArbre g);
 #endif
 
 
