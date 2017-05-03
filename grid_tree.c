@@ -65,7 +65,6 @@ void print_grid_tree(NArbre g)
 
 void free_grid_tree(NArbre g)
 {
-<<<<<<< HEAD
 	free_grid(&g->g);
 
 	if(g->nbFils != 0){
@@ -75,20 +74,4 @@ void free_grid_tree(NArbre g)
 	}
 
 	free(g);
-=======
-    int i;
-    free_grid(&g->g);
-    if(g->nbFils != 0)
-    {
-        for(i=0;i<g->nbFils;i=i+1)
-        {
-            
-            free_grid_tree(g->tabfils[i]);
-            
-        }
-        
-    }
-    free(g);
-
->>>>>>> 72cbff3074fedffea93cb83f588941b0942bd675
 }
