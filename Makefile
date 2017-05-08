@@ -31,10 +31,10 @@ solvpile.o:solvpile.c solvpile.h pile.h
 loop_game.o: loop_game.c loop_game.h grid_color.h solveur.h pile.h solvpile.h
 	${CC} ${CFLAGS}  -c loop_game.c
 
-main_jeu.o: main_jeu.c loop_game.h solveur.h 
+main_jeu.o: main_jeu.c loop_game.h solveur.h grid_tree.h
 	${CC} ${CFLAGS}  -c main_jeu.c
 
-jeu: main_jeu.o loop_game.o	solveur.o pile.o solvpile.o grid_color.o
+jeu: main_jeu.o loop_game.o	solveur.o pile.o solvpile.o grid_color.o grid_tree.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 	
 mainsolveur.o: mainsolveur.c solveur.h loop_game.h grid_color.h pile.h solvpile.h

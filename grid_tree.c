@@ -12,36 +12,37 @@
 
 typedef struct g_narbre 
 {
-    grid g;
-    struct g_narbre *tabfils[MAXFILS]; // tableau des fils, initialisés à NULL
-    int nbFils; // nombre de fils, doit être initialisé à 0.
-    
+	grid g;
+	struct g_narbre *tabfils[MAXFILS]; // tableau des fils, initialisés à NULL
+	int nbFils; // nombre de fils, doit être initialisé à 0.
+	
 } NNoeud, *NArbre;
 
 NArbre nouvelNArbre(grid g) 
 {
-    NArbre res=NULL;
-    int i;
-    res = (NArbre)malloc(sizeof(NNoeud));
-    res -> g = g;
-    res -> nbFils = 0;
-    for(i=0;i<MAXFILS;i=i+1)
-        res->tabfils[i]=ARBREVIDE;
-    return res;
+	NArbre res=NULL;
+	int i;
+	res = (NArbre)malloc(sizeof(NNoeud));
+	res -> g = g;
+	res -> nbFils = 0;
+	for(i=0;i<MAXFILS;i=i+1){
+		res->tabfils[i] = ARBREVIDE;
+	}
+	return res;
 }
 
 void ajoutFils(NArbre a, NArbre fils) 
 {
-    
-    if (a!=ARBREVIDE) 
-    {
-        if (a->nbFils < MAXFILS) 
-        {
-            a->tabfils[a->nbFils]=fils;
-            a->nbFils++;
-        }
-    }
-    
+	
+	if (a!=ARBREVIDE) 
+	{
+		if (a->nbFils < MAXFILS) 
+		{
+			a->tabfils[a->nbFils]=fils;
+			a->nbFils++;
+		}
+	}
+	
 }
 
 int getnbFils(NArbre a){
@@ -54,24 +55,30 @@ grid getgrid(NArbre a){
 
 void print_grid_tree(NArbre g)
 {
-    int i;
-    grid_print(&g->g);
+	if(g == ARBREVIDE){
+		printf("arbre vide");
+	}
+	else{
+		int i;
+		grid_print(&g->g);
 
-    for(i=0;i<g->nbFils;i=i+1)
-    {
-        grid_print(&g->tabfils[i]->g);
-    }
+		for(i=0;i<g->nbFils;i=i+1)
+		{
+			//printf("fils %d\n", i);
+			print_grid_tree(g->tabfils[i]);
+		}
+	}
 }
 
 void free_grid_tree(NArbre g)
 {
-	free_grid(&g->g);
-
-	if(g->nbFils != 0){
+	if (g != ARBREVIDE){
+		free_grid(&g->g);
 		for(int i = 0; i < g->nbFils; i = i+1){
+			//printf("fils %d\n", i);
 			free_grid_tree(g->tabfils[i]);
 		}
+		//free(&g->tabfils);
+ 		free(g);
 	}
-
-	free(g);
 }
