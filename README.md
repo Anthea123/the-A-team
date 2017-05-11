@@ -65,7 +65,7 @@ Pour nettoyer le répertoire:
 
 `make clean`
 
-###Instructions d'utilisation de l'application Color Flood en mode graphique
+### Instructions d'utilisation de l'application Color Flood en mode graphique
 
 
 
