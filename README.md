@@ -1,6 +1,6 @@
 #LotD
 
-##The A-Team
+##The A-Team  <Color Flood>
 
 ### Fichiers inclus
 * grid_color.c : Contient toutes les fonctions de base utilisées dans tous les lots précédents
