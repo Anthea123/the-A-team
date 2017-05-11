@@ -1,6 +1,6 @@
-#LotD
+# LotD
 
-##The A-Team  <Color Flood>
+## The A-Team  <Color Flood>
 
 ### Fichiers inclus
 * grid_color.c : Contient toutes les fonctions de base utilisées dans tous les lots précédents
@@ -23,7 +23,7 @@
 * gantt_ressources.png et gantt_tâches.png : impression diagramme de Gantt des tâches et des ressources si on n'utilise pas le même logiciel Gantt
 
 
-###Instructions d'installation
+### Instructions d'installation
 
 Pour la documentation doxygen:
 
@@ -73,7 +73,7 @@ Pour compiler et exécuter le solveur en mode texte:
 
 `make ./solveurSDL`
 
-###Instructions de documentation
+### Instructions de documentation
 
 Tous les commentaires au format doxygen sont mis dans les headers pour éviter la duplication dans la documentation
 D'autres commentaires normaux sont inclus dans les fichiers sources
