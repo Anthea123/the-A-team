@@ -5,9 +5,9 @@
 ### Fichiers inclus
 * grid_color.c : Contient toutes les fonctions de base utilisées dans tous les lots précédents
 * grid_color.h : Contient les prototypes des fonctions du module grid_color et leurs commentaires Doxygen
-* solveur.c : Contient l'implémentation des fonctions du solveur
-* solveur.h : Contient les prototypes des fonctions du solveur
-* unit_test.c : Contient les tests unitaires des fonctions des piles et de solvpile et les tests unitaires du solveur 
+* solveur_rapide.c : Contient l'implémentation des fonctions du solveur optimisé
+* solveur_rapide.h : Contient les prototypes des fonctions du solveur optimisé
+* unit_test.c : Contient les tests unitaires des fonctions du solveur optimisé
 * unit_test.h : Contient les prototypes des tests unitaires
 * loop_game.c : fonctions pour le déroulement du jeu
 * loop_game.h : Contient les prototypes des fonctions implémentées dans loop_game.c
@@ -19,7 +19,7 @@
 * solveurSDL.c : Contient le solveur en mode graphique
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
 * Makefile : Permet de générer les exécutables et la documentation
-* Rapport_Lot_C.pdf : Rapport du Lot C
+* Rapport_Lot_D.pdf : Rapport du Lot D
 * color_flood.gan : diagramme de Gantt du projet fait avec le logiciel GanttProject
 * gantt_ressources.png et gantt_tâches.png : impression diagramme de Gantt des tâches et des ressources si on n'utilise pas le même logiciel Gantt
 
