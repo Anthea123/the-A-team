@@ -5,10 +5,6 @@
 ### Fichiers inclus
 * grid_color.c : Contient toutes les fonctions de base utilisées dans tous les lots précédents
 * grid_color.h : Contient les prototypes des fonctions du module grid_color et leurs commentaires Doxygen
-* pile.c : Contient  l'implémentation des fonctions de base des piles
-* pile.h : Contient les prototypes des fonctions de base implémentées dans pile.c
-* solvpile.c : Contient les fonctions pour les piles de piles
-* solvpile.h :  Contient les prototypes des fonctions implémentées dans solvpile.c
 * solveur.c : Contient l'implémentation des fonctions du solveur
 * solveur.h : Contient les prototypes des fonctions du solveur
 * unit_test.c : Contient les tests unitaires des fonctions des piles et de solvpile et les tests unitaires du solveur 
