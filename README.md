@@ -9,14 +9,13 @@
 * solveur_rapide.h : Contient les prototypes des fonctions du solveur optimisé
 * unit_test.c : Contient les tests unitaires des fonctions du solveur optimisé
 * unit_test.h : Contient les prototypes des tests unitaires
-* loop_game.c : fonctions pour le déroulement du jeu
+* loop_game.c : Contient les fonctions pour l'application Color Flood en mode console
 * loop_game.h : Contient les prototypes des fonctions implémentées dans loop_game.c
-* main_jeu.c : Permet d'exécuter le jeu en mode texte
-* mainsolveur.c : Contient un jeu et la solution à ce jeu
+* main_jeu.c : Permet d'exécuter l'application en mode console
 * main_test.c : Exécute les tests unitaires
-* SDL.c : fonctions de base pour le jeu en mode graphique
+* SDL.c : Contient les fonctions de base pour le jeu en mode graphique
 * SDL.h : Contient les prototypes des fonctions de base pour le jeu en mode graphique
-* solveurSDL.c : Contient le solveur en mode graphique
+* solveurSDL.c : 
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
 * Makefile : Permet de générer les exécutables et la documentation
 * Rapport_Lot_D.pdf : Rapport du Lot D
@@ -66,9 +65,9 @@ Pour nettoyer le répertoire:
 
 `make clean`
 
-###Instructions d'utilisation du solveur en mode graphique 
+###Instructions d'utilisation de l'application Color Flood en mode graphique
 
-Pour le Solveur en mode graphique pour sélectionner un choix du menu on utilise les fleches haut et bas du clavier et pour choisir la taille on utilise les fleches gauche et droite et puis Espace pour selectionner notre choix(taille), le jeu se joue ensuite tout seul. On ne peut quitter le jeu que si le jeu et résolu et fini.
+
 
 Pour compiler et exécuter le solveur en mode texte:
 
