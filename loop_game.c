@@ -1,9 +1,6 @@
 #include "loop_game.h"
 #include "grid_color.h"
-<<<<<<< HEAD
-=======
 #include "solveur_rapide.h"
->>>>>>> 49ffadf0a7a80ea154a15e3c849cf98f2060287a
 
 /*	on demande à l'utilisateur de saisir une couleur , si celle ci n'est pas valide et 
 	tant que l'utilisateur ne quitte pas avec 'Q' on lui redemande de sasir une couleur
@@ -50,26 +47,13 @@ int get_size()
 int get_nombre_coups(grid g)
 {
 	int nb;
-<<<<<<< HEAD
-
-	/*pile* solution = init_pile();
-	solvpile * soltrouve = init_solvpile();*/
 
 	int iter = 0;
 	char sol[100];
 
-	/*soltrouve = solveur(g,solution,soltrouve, &iter, 0);*/
-	/*pile * p = reverse(minpile(soltrouve));*/
 	solution_rapide(g, sol, &iter);
 
 	nb = iter;
-
-=======
-	int iter = 0;
-	char sol[100];
-	solution_rapide(g, sol, &iter);
-	nb = iter;
->>>>>>> 49ffadf0a7a80ea154a15e3c849cf98f2060287a
 	return nb;
 }
 

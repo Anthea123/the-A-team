@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 /**
 *	\file solveur_rapide.h
 *	\brief prototypes des fonctions et structures nécessaires pour l'application Color Flood
@@ -11,23 +8,11 @@
 
 #ifndef _SOLVEUR_RAPIDE_H
 #define _SOLVEUR_RAPIDE_H
->>>>>>> 49ffadf0a7a80ea154a15e3c849cf98f2060287a
 
 #include <stdbool.h>
 #include <stdlib.h>
 #include "grid_color.h"
 
-<<<<<<< HEAD
-void solution_rapide(grid grille_depart, char sol[100], int *i);
-
-grid copy(grid g);
-
-bool choixpertinent(grid g,char c);
-
-int compteur(grid g);
-
-char size_tache(grid g, char couleurs[6]);
-=======
 /**
 *	\fn grid copy(grid g)
 *	\brief copie la grille passée en paramètre g dans une autre grille g1
@@ -68,4 +53,3 @@ char size_tache(grid g, char couleurs[6]);
 */
 void solution_rapide(grid grille_depart, char sol[100], int *i);
 #endif
->>>>>>> 49ffadf0a7a80ea154a15e3c849cf98f2060287a

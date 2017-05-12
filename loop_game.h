@@ -10,10 +10,6 @@
 #define _LOOP_GAME_H
 
 #include "grid_color.h"
-<<<<<<< HEAD
-//#include "solveur.h"
-=======
->>>>>>> 49ffadf0a7a80ea154a15e3c849cf98f2060287a
 #include "solveur_rapide.h"
 
 /**

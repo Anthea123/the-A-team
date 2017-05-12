@@ -118,7 +118,7 @@ void solution_rapide(grid grille_depart,char sol[100],int *i)
 	sol[*i]=c;
     change_color(&g2,c);
     refresh_grid(&g2); 
-	grid_print(&g2);				
+	//grid_print(&g2);				
     if(!test_same_colour(&g2))
 	{
 						
