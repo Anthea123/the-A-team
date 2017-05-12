@@ -37,6 +37,12 @@ Pour l'interface graphique SDL:
 
 `sudo apt-get install libsdl1.2-dev libsdl-gfx1.2-dev libsdl-ttf2.0-dev libfreeimage-dev`
 
+Pour installer la bibliothèque SDl_Mixer dans un terminal :
+```
+sudo apt-get install libsdl-mixer1.2
+sudo apt-get install libsdl-mixer1.2-dev
+```
+
 ### Instructions d'utilisation en mode texte
 
 Pour compiler et exécuter le solveur en mode texte:
