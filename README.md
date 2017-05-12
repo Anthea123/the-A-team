@@ -43,7 +43,7 @@ sudo apt-get install libsdl-mixer1.2
 sudo apt-get install libsdl-mixer1.2-dev
 ```
 
-### Instructions d'utilisation en mode texte
+### Instructions d'utilisation de l'application Color Flood en mode console
 
 Pour compiler et exécuter le solveur en mode texte:
 
