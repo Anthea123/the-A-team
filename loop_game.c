@@ -1,5 +1,9 @@
 #include "loop_game.h"
 #include "grid_color.h"
+<<<<<<< HEAD
+=======
+#include "solveur_rapide.h"
+>>>>>>> 49ffadf0a7a80ea154a15e3c849cf98f2060287a
 
 /*	on demande à l'utilisateur de saisir une couleur , si celle ci n'est pas valide et 
 	tant que l'utilisateur ne quitte pas avec 'Q' on lui redemande de sasir une couleur
@@ -13,7 +17,8 @@ char get_colour()
 	scanf("%s", tmp);
 	c = tmp[0];
 
-	while(!test_is_color(c) && c != 'Q'){
+	while(!test_is_color(c) && c != 'Q')
+	{
 		printf("Entrer une couleur:\n");
 		scanf("%s", tmp);
 		c = tmp[0];
@@ -41,20 +46,11 @@ int get_size()
 }
 
 /*	on calcule le nombre de coups nécessaire pour résoudre la grille à l'aide du 
-	solveur*/
+	solveur_rapide*/
 int get_nombre_coups(grid g)
 {
-
-	/*printf("Entrer le nombre de coups autorisé:\n");
-	scanf("%d", &nb);
-	
-	while(nb < 1)
-	{
-		printf("Entrer le nombre de coups autorisé:\n");
-		scanf("%d", &nb);
-	}*/
-
 	int nb;
+<<<<<<< HEAD
 
 	/*pile* solution = init_pile();
 	solvpile * soltrouve = init_solvpile();*/
@@ -68,6 +64,12 @@ int get_nombre_coups(grid g)
 
 	nb = iter;
 
+=======
+	int iter = 0;
+	char sol[100];
+	solution_rapide(g, sol, &iter);
+	nb = iter;
+>>>>>>> 49ffadf0a7a80ea154a15e3c849cf98f2060287a
 	return nb;
 }
 
@@ -124,31 +126,28 @@ void game()
 	grid g;
 
 	size = get_size();
-
 	g = init_grid(size);
-
 	coups_restants = get_nombre_coups(g);
 
 	printf("Vous avez %d coups pour résoudre cette grille\n", coups_restants);
-
 	grid_print(&g);
-
 	detect_flood(&g, 0, 0, g.array[0][0]);
 		
-	while(!test_same_colour(&g) && coups_restants > 0 && !test_quit){
+	while(!test_same_colour(&g) && coups_restants > 0 && !test_quit)
+	{
 			
             c = get_colour();
-
-			if(c != 'Q'){
+			if(c != 'Q')
+			{
 				turn(&coups_restants, &nbr_mvm, &g, c);
 			}
-			else{
+			else
+			{
 				test_quit = 1;
 			}
 	}
 		
 	check(&g, test_quit, nbr_mvm);
-
 	free_grid(&g);
 	
 }

@@ -3,10 +3,10 @@
 
 /**
 *	\file unit_test.h
-*	\brief prototypes des fonctions et structures nécessaires pour les tests unitaires des fonctions contenues dans pile.c et solveur.c
+*	\brief prototypes des fonctions et structures nécessaires pour les tests unitaires des fonctions du solveur_rapide
 *	\author Loubna Anthea Abdellah Bader
-*	\version 1.0
-*	\date 24 Mar 2017
+*	\version 3.0
+*	\date 10 Mai 2017
 */
 
 #include <stdbool.h>
@@ -15,4 +15,8 @@
 #include "grid_color.h"
 
 
+<<<<<<< HEAD
 #endif
+=======
+#endif
+>>>>>>> 49ffadf0a7a80ea154a15e3c849cf98f2060287a

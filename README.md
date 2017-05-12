@@ -1,34 +1,29 @@
-#LotD
+# LotD : Color Flood 
 
-##The A-Team
+## The A-Team  
 
 ### Fichiers inclus
 * grid_color.c : Contient toutes les fonctions de base utilisées dans tous les lots précédents
 * grid_color.h : Contient les prototypes des fonctions du module grid_color et leurs commentaires Doxygen
-* pile.c : Contient  l'implémentation des fonctions de base des piles
-* pile.h : Contient les prototypes des fonctions de base implémentées dans pile.c
-* solvpile.c : Contient les fonctions pour les piles de piles
-* solvpile.h :  Contient les prototypes des fonctions implémentées dans solvpile.c
-* solveur.c : Contient l'implémentation des fonctions du solveur
-* solveur.h : Contient les prototypes des fonctions du solveur
-* unit_test.c : Contient les tests unitaires des fonctions des piles et de solvpile et les tests unitaires du solveur 
+* solveur_rapide.c : Contient l'implémentation des fonctions du solveur optimisé
+* solveur_rapide.h : Contient les prototypes des fonctions du solveur optimisé
+* unit_test.c : Contient les tests unitaires des fonctions du solveur optimisé
 * unit_test.h : Contient les prototypes des tests unitaires
-* loop_game.c : fonctions pour le déroulement du jeu
+* loop_game.c : Contient les fonctions pour l'application Color Flood en mode console
 * loop_game.h : Contient les prototypes des fonctions implémentées dans loop_game.c
-* main_jeu.c : Permet d'exécuter le jeu en mode texte
-* mainsolveur.c : Contient un jeu et la solution à ce jeu
+* main_jeu.c : Permet d'exécuter l'application en mode console
 * main_test.c : Exécute les tests unitaires
-* SDL.c : fonctions de base pour le jeu en mode graphique
+* SDL.c : Contient les fonctions de base pour le jeu en mode graphique
 * SDL.h : Contient les prototypes des fonctions de base pour le jeu en mode graphique
-* solveurSDL.c : Contient le solveur en mode graphique
+* solveurSDL.c : 
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
 * Makefile : Permet de générer les exécutables et la documentation
-* Rapport_Lot_C.pdf : Rapport du Lot C
+* Rapport_Lot_D.pdf : Rapport du Lot D
 * color_flood.gan : diagramme de Gantt du projet fait avec le logiciel GanttProject
 * gantt_ressources.png et gantt_tâches.png : impression diagramme de Gantt des tâches et des ressources si on n'utilise pas le même logiciel Gantt
 
 
-###Instructions d'installation
+### Instructions d'installation
 
 Pour la documentation doxygen:
 
@@ -42,7 +37,13 @@ Pour l'interface graphique SDL:
 
 `sudo apt-get install libsdl1.2-dev libsdl-gfx1.2-dev libsdl-ttf2.0-dev libfreeimage-dev`
 
-###Instructions d'utilisation en mode texte
+Pour installer la bibliothèque SDl_Mixer bibliothèque du son :
+```
+sudo apt-get install libsdl-mixer1.2
+sudo apt-get install libsdl-mixer1.2-dev
+```
+
+### Instructions d'utilisation de l'application Color Flood en mode console
 
 Pour compiler et exécuter le solveur en mode texte:
 
@@ -70,15 +71,15 @@ Pour nettoyer le répertoire:
 
 `make clean`
 
-###Instructions d'utilisation du solveur en mode graphique 
+### Instructions d'utilisation de l'application Color Flood en mode graphique
 
-Pour le Solveur en mode graphique pour sélectionner un choix du menu on utilise les fleches haut et bas du clavier et pour choisir la taille on utilise les fleches gauche et droite et puis Espace pour selectionner notre choix(taille), le jeu se joue ensuite tout seul. On ne peut quitter le jeu que si le jeu et résolu et fini.
+
 
 Pour compiler et exécuter le solveur en mode texte:
 
 `make ./solveurSDL`
 
-###Instructions de documentation
+### Instructions de documentation
 
 Tous les commentaires au format doxygen sont mis dans les headers pour éviter la duplication dans la documentation
 D'autres commentaires normaux sont inclus dans les fichiers sources
