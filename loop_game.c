@@ -14,7 +14,7 @@ char get_colour()
 	scanf("%s", tmp);
 	c = tmp[0];
 
-	while(!test_is_color(c) && c != 'Q')
+	while(!test_is_color(c) && c != 'Q' && c != 'H')
 	{
 		printf("Entrer une couleur:\n");
 		scanf("%s", tmp);
@@ -47,14 +47,45 @@ int get_size()
 int get_nombre_coups(grid g)
 {
 	int nb;
-
 	int iter = 0;
 	char sol[100];
-
+	
 	solution_rapide(g, sol, &iter);
 
 	nb = iter;
 	return nb;
+}
+
+int get_level(){
+	int level = 0;
+	int coups_extra;
+
+	printf("Choisissez la difficulté:\n");
+	printf("1: Facile\n");
+	printf("2: Moyen\n");
+	printf("3: Difficile\n");
+	
+	while(!(level == 1 || level == 2 || level == 3)){
+
+		scanf("%d", &level);
+
+		switch(level){
+			case 1:
+				coups_extra = 10;
+				break;
+			case 2:
+				coups_extra = 5;
+				break;
+			case 3:
+				coups_extra = 0;
+				break;
+			default:
+				printf("Nombre non valide.\n");
+				break;
+		}
+	}
+
+	return coups_extra;
 }
 
 /*	effectue les changements nécessaires à la grille à chaque tour de jeu*/
@@ -104,14 +135,19 @@ void game()
 {
 	int size;
 	int coups_restants;
+	int coups_extra;
 	int nbr_mvm = 0;
 	int test_quit = 0;
 	char c;
+	char sol[100];
 	grid g;
 
 	size = get_size();
 	g = init_grid(size);
-	coups_restants = get_nombre_coups(g);
+
+	coups_extra = get_level();
+
+	coups_restants = get_nombre_coups(g) + coups_extra;
 
 	printf("Vous avez %d coups pour résoudre cette grille\n", coups_restants);
 	grid_print(&g);
@@ -123,7 +159,15 @@ void game()
             c = get_colour();
 			if(c != 'Q')
 			{
-				turn(&coups_restants, &nbr_mvm, &g, c);
+				if(c != 'H'){
+					turn(&coups_restants, &nbr_mvm, &g, c);
+				}
+				else{
+					int i = 0;
+					solution_rapide(g, sol, &i);
+					printf("Une solution:\n");
+					printf("%s\n", sol);
+				}
 			}
 			else
 			{

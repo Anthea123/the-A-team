@@ -27,12 +27,20 @@ char get_colour();
 int get_size();
 
 /**
-*	\fn int get_nombre_coups()
+*	\fn int get_nombre_coups(grid g)
 *	\brief calcule le nombre de coups autorisés à l'aide du solveur_rapide
 *	\param g la grille du jeu
 *	\return le nombre de coups autorisés à l'aide du solveur_rapide
 */
 int get_nombre_coups(grid g);
+
+/**
+*	\fn int get_level()
+*	\brief calcule le nombre de coups à rajouter en plus de ceux donnés par 
+*	get_nombre_coups selon le niveau choisi par le joueur
+*	\return le nombre de coups autorisés à l'aide du solveur_rapide
+*/
+int get_level();
 
 /**
 *	\fn void turn(int *coups_restants, int *nbr_mvm, grid *g, char c)
