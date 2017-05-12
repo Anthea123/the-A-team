@@ -37,7 +37,7 @@ Pour l'interface graphique SDL:
 
 `sudo apt-get install libsdl1.2-dev libsdl-gfx1.2-dev libsdl-ttf2.0-dev libfreeimage-dev`
 
-Pour installer la bibliothèque SDl_Mixer dans un terminal :
+Pour installer la bibliothèque SDl_Mixer bibliothèque du son :
 ```
 sudo apt-get install libsdl-mixer1.2
 sudo apt-get install libsdl-mixer1.2-dev
