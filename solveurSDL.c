@@ -2,9 +2,7 @@
 #include <SDL/SDL_ttf.h>
 #include "grid_color.h"
 #include "SDL.h"
-#include "pile.h"
-#include "solvpile.h"
-#include "solveur.h"
+#include "solveur_rapide.h"
 
 
 
@@ -82,12 +80,7 @@ int main()
 		g=init_grid(size);printgrille(ecran,g);
 		SDL_Flip(ecran);
 
-		pile *solution=NULL;
-		solvpile *soltrouve=NULL;
-		int iter=0;
-		soltrouve=solveur(g,solution,soltrouve,&iter,0);
-		solution=reverse(minpile(soltrouve));
-		int nbr_mvm=pilelen(solution);
+		/*
 		while(solution!=NULL){
 			char couleuractu=get_head(solution);
 			drawRectangle(ecran,10,10,80,255,255,255);
@@ -106,7 +99,7 @@ int main()
 		free_grid(&g);
 		TTF_CloseFont(police);
 		TTF_Quit();
-		SDL_Quit();
+		SDL_Quit();*/
 		}
 
 	return 0;
