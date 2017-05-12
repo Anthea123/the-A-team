@@ -56,6 +56,10 @@ int get_nombre_coups(grid g)
 	return nb;
 }
 
+/* 
+	on demande le niveau de jeux et on retourne le nombre de coups à rajouter en
+	fonction de ce qui est entré
+*/
 int get_level(){
 	int level = 0;
 	int coups_extra;
