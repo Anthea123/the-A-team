@@ -10,7 +10,8 @@
 #define _LOOP_GAME_H
 
 #include "grid_color.h"
-#include "solveur.h"
+//#include "solveur.h"
+#include "solveur_rapide.h"
 
 /**
 *	\fn char get_colour()

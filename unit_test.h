@@ -13,15 +13,6 @@
 #include "CUnit/CUnit.h"
 #include "CUnit/Basic.h"
 #include "grid_color.h"
-#include "grid_tree.h"
-#include "solveur.h"
 
-/***************** tests pour les NArbres *************************/
-
-bool test_egalite(grid g1, grid g2);
-
-void test_nouvelNArbre(void);
-
-void test_ajoutFils(void);
 
 #endif
