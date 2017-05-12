@@ -1,12 +1,11 @@
-
 #include "solveur_rapide.h"
-#define ARBREVIDE NULL
 
 
 grid copy(grid g)
 {
 	int n=g.size;
 	grid g1=init_grid(g.size);
+
 	for(int i=0;i<n;i++)
 	{
 		for(int j=0;j<n;j++)
@@ -15,19 +14,20 @@ grid copy(grid g)
 			g1.belong[i][j]=g.belong[i][j];
 		}
 	}
+
 	return g1;
 }
 
 bool choixpertinent(grid g,char c)
 {
-	if(g.array[0][0]==c){
+	if(g.array[0][0]==c)
+	{
 		return false;
 	}
 
 	int n=g.size;
 	detect_flood(&g,0,0,g.array[0][0]);
 	grid g1=copy(g);
-	//detect_flood(&g1,0,0,g1.array[0][0]);
 	change_color(&g1,c);
 	refresh_grid(&g1);
 	detect_flood(&g1,0,0,g1.array[0][0]);
@@ -81,7 +81,7 @@ char size_tache(grid g, char couleurs[6])
 		grid g2=copy(g);
 		if(choixpertinent(g2,couleurs[i]))
 		{
-						
+
 			change_color(&g2, couleurs[i]);
 			refresh_grid(&g2);
 			detect_flood(&g2,0,0,g2.array[0][0]);
@@ -92,33 +92,27 @@ char size_tache(grid g, char couleurs[6])
 				couleur_res=couleurs[i];
 				
 			}
-			
 
 		}
 		free_grid(&g2);
 		
 
-	} 
-	return couleur_res;
+	 } 
+	 return couleur_res;
 }
 
 
 void solution_rapide(grid grille_depart,char sol[100],int *i)
 {
-     
-	char c;
-	 
-    
+
+	char c;   
     grid g2=copy(grille_depart);
     detect_flood(&g2,0,0,g2.array[0][0]);
 	c=size_tache(g2,couleurs);
-	//sol=append(sol,c);
-	//append(sol,)
-	//sprintf(sol,"%s%c",sol,c);
 	sol[*i]=c;
     change_color(&g2,c);
     refresh_grid(&g2); 
-	//grid_print(&g2);				
+	grid_print(&g2);				
     if(!test_same_colour(&g2))
 	{
 						
@@ -129,6 +123,3 @@ void solution_rapide(grid grille_depart,char sol[100],int *i)
 	free_grid(&g2);
 		   
 }
-	   
-
-       
