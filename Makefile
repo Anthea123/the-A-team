@@ -33,13 +33,13 @@ solveur_rapide.o: solveur_rapide.c grid_color.h solveur_rapide.h
 exsolveur:solveur.o mainsolveur.o grid_color.o pile.o solvpile.o loop_game.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 	
-unit_test.o:unit_test.c unit_test.h grid_color.h 
+unit_test.o:unit_test.c unit_test.h grid_color.h solveur_rapide.h
 	${CC} ${CFLAGS}  -c unit_test.c
 	
-main_test.o: main_test.c unit_test.h grid_color.h 
+main_test.o: main_test.c unit_test.h grid_color.h solveur_rapide.h
 	${CC} ${CFLAGS}  -c main_test.c
 	
-tests: main_test.o unit_test.o grid_color.o 
+tests: main_test.o unit_test.o grid_color.o solveur_rapide.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 	
 doc: Doxyfile 

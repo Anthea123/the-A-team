@@ -7,7 +7,9 @@
 int main(){
     CU_initialize_registry();
 
-   
+	CU_pSuite suite1 = CU_add_suite("solveur", 0, 0);
+
+	CU_add_test(suite1, "choixpertinent", test_choixpertinent);
 
    	CU_basic_set_mode(CU_BRM_VERBOSE);
 	CU_basic_run_tests();

@@ -13,7 +13,8 @@
 #include "CUnit/CUnit.h"
 #include "CUnit/Basic.h"
 #include "grid_color.h"
+#include "solveur_rapide.h"
 
-
+void test_choixpertinent(void);
 
 #endif
