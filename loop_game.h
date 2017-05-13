@@ -43,15 +43,16 @@ int get_nombre_coups(grid g);
 int get_level();
 
 /**
-*	\fn void turn(int *coups_restants, int *nbr_mvm, grid *g, char c)
+*	\fn void turn(int *coups_restants, int *nbr_mvm, grid *g, char c, int nombre_coups)
 *	\brief on effectue le changement de couleur dans la grille
 *	\param  *coups_restants le pointeur du nombre de coups coups_restants
+*	\param  nombre_coups le nombre de coups autorisé pour la partie
 *	\param  *nbr_mvm le pointeur du nombre de mouvements joués
 *	\param  *g le pointeur de la grille
 *	\param  c la couleur utilisée
 *	\return void c'est une fonction de type void
 */
-void turn(int *coups_restants, int *nbr_mvm, grid *g, char c);
+void turn(int *coups_restants, int *nbr_mvm, grid *g, char c, int nombre_coups);
 
 /**
 *	\fn void check(grid *g, int test_quit, int nbr_mvm)

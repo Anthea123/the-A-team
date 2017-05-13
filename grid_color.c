@@ -253,7 +253,7 @@ void grid_print(grid *grille)
 	{
 		for(j=0 ;j < grille->size; j++)
 		{
-			printf("%c", grille->array[i][j]);
+			printf("%c ", grille->array[i][j]);
 		}
 		printf("\n");
 	}
