@@ -75,6 +75,11 @@ char size_tache(grid g, char couleurs[6])
 	char couleur_res;
 	int i = 0;
 
+	if(g.size <= 1){
+		printf("Taille non valide\n");
+		return g.array[0][0];
+	}
+
 	for(i = 0; i < 6 ; i++)
 	{
 		grid g2 = copy(g);
@@ -101,6 +106,7 @@ char size_tache(grid g, char couleurs[6])
 void solution_rapide(grid grille_depart,char sol[100],int *i)
 { 
 	char c;
+
 	grid g2 = copy(grille_depart);
 	
 	detect_flood(&g2, 0, 0, g2.array[0][0]);

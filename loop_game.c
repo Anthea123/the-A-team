@@ -31,7 +31,7 @@ int get_size()
 {
     int s;
 
-    printf("Entrer la taille de la grille:\n");
+    printf("Entrer la taille de la grille (supérieure à 1):\n");
 	scanf("%d",&s);
 	
 	while(s <= 1)
@@ -106,6 +106,7 @@ void turn(int *coups_restants, int *nbr_mvm, grid *g, char c, int nombre_coups)
 	grid_print(g);
 	//printf("Il vous reste %d coups\n", *coups_restants);
 	printf("Coups joués: %d/%d\n", *nbr_mvm, nombre_coups);
+	printf("\n");
 	detect_flood(g, 0, 0, g->array[0][0]);
 }
 
