@@ -13,11 +13,13 @@
 * loop_game.h : Contient les prototypes des fonctions implémentées dans loop_game.c
 * main_jeu.c : Permet d'exécuter l'application en mode console
 * main_test.c : Exécute les tests unitaires
+* grille1, grille2, grille3 et grille4: Définissent des grilles utilisées pour les tets unitaires
 * SDL.c : Contient les fonctions de base pour le jeu en mode graphique
 * SDL.h : Contient les prototypes des fonctions de base pour le jeu en mode graphique
 * solveurSDL.c : 
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
 * Makefile : Permet de générer les exécutables et la documentation
+* resultat-valgrind: Contient les résultats de Valgrind pour les exécutables
 * Rapport_Lot_D.pdf : Rapport du Lot D
 * color_flood.gan : diagramme de Gantt du projet fait avec le logiciel GanttProject
 * gantt_ressources.png et gantt_tâches.png : impression diagramme de Gantt des tâches et des ressources si on n'utilise pas le même logiciel Gantt
