@@ -47,11 +47,7 @@ sudo apt-get install libsdl-mixer1.2-dev
 
 ### Instructions d'utilisation de l'application Color Flood en mode console
 
-Pour compiler et exécuter le solveur en mode texte:
-
-`make ./exsolveur arg` où `arg` est la taille de la grille
-
-Pour compiler et exécuter le jeu en mode texte:
+Pour compiler et exécuter l'application en mode console:
 
 `make ./jeu`
 
@@ -59,9 +55,7 @@ Pour compiler et exécuter les tests:
 
 `make ./tests`
 
-Pour tester l'absence de fuites de mémoire (Valgrind
-
-`valgrind ./exsolveur arg` où `arg` est la taille de la grille
+Pour tester l'absence de fuites de mémoire (Valgrind)
 
 `valgrind ./tests`
 
@@ -77,9 +71,7 @@ Pour nettoyer le répertoire:
 
 
 
-Pour compiler et exécuter le solveur en mode texte:
 
-`make ./solveurSDL`
 
 ### Instructions de documentation
 
