@@ -19,6 +19,9 @@
 #include <sys/stat.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "pile.h"
+#include "solveur_rapide.h"
+
 
 /**
 *	\fn drawRectangle(SDL_Surface *ecran, int px, int py, int size, int r, int g, int b)
@@ -54,7 +57,7 @@ void printgrille(SDL_Surface *ecran,grid g);
 *	\param g grille
 *	\return void c'est une fonction de type void
 */
-void printcouleurs(SDL_Surface *ecran);
+void interface(SDL_Surface *ecran);
 /**
 *	\fn jouer(SDL_Surface *ecran,grid g,char c)
 *	\brief permet de changer la couleur de la grille à chaque fois qu'on joue une couleur parmi les 7 à partir d'un caractère de la grille g
@@ -99,5 +102,12 @@ void dessinerfleche(SDL_Surface *ecran,int fleche);
 *	\return void c'est une fonction de type void
 */
 int finjeu(SDL_Surface *ecran,TTF_Font *police,int WL,int nbr_mvm);
-
+void printsolution(SDL_Surface *ecran,grid grille);
+void drawcolor(SDL_Surface *ecran,int px,int py,double size,char c);
+void drawTexture(SDL_Surface *ecran,int px, int py,double zoom, SDL_Surface *ima);
+void fondmenu(SDL_Surface *ecran);
+int nbr_coups(grid grille);
+void choisirniveau(SDL_Surface *ecran,int fleche);
+int surfer_menu(SDL_Surface *ecran,int *niveau,int *size);
+int loop_game(SDL_Surface *ecran,int size,int niveau);
 #endif
