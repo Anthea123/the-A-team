@@ -103,7 +103,7 @@ char size_tache(grid g, char couleurs[6])
 }
 
 
-void solution_rapide(grid grille_depart,char sol[100],int *i)
+void solution_rapide(grid grille_depart,char sol[1000],int *i)
 {
 
 	char c;   
