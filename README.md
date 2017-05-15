@@ -16,7 +16,7 @@
 * grille1, grille2, grille3 et grille4: Définissent des grilles utilisées pour les tets unitaires
 * SDL.c : Contient les fonctions de base pour le jeu en mode graphique
 * SDL.h : Contient les prototypes des fonctions de base pour le jeu en mode graphique
-* solveurSDL.c : 
+* ColorFlood.c : Contient le main pour exécuter le jeu en mode graphique
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
 * Makefile : Permet de générer les exécutables et la documentation
 * resultat-valgrind: Contient les résultats de Valgrind pour les exécutables
