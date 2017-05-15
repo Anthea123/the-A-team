@@ -1,49 +1,45 @@
-
-
 CC=gcc
 CFLAGS=-std=c11 -Wall -Wextra -g
 LDFLAGS=-lm -lcunit
 
-all: tests exsolveur solveurSDL
+all: tests ColorFlood jeu
 
 
 grid_color.o: grid_color.c grid_color.h
 	${CC} ${CFLAGS} -c grid_color.c
 
-SDL.o: SDL.c SDL.h grid_color.h  solveur_rapide.h
+SDL.o: SDL.c SDL.h grid_color.h
 	${CC} ${CFLAGS} -c SDL.c
 
-solveurSDL.o:solveurSDL.c SDL.h grid_color.o  solveur_rapide.h
-	${CC} ${CFLAGS} -c solveurSDL.c
+ColorFlood.o:ColorFlood.c SDL.h grid_color.o solveur_rapide.h
+	${CC} ${CFLAGS} -c ColorFlood.c
 
-solveurSDL:grid_color.o SDL.o solveurSDL.o  solveur_rapide.o
-	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS} -lSDL -lSDL_ttf  -lSDL_gfx -lSDL_mixer
+ColorFlood:grid_color.o SDL.o ColorFlood.o solveur_rapide.o
+	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS} -lSDL -lSDL_ttf -lSDL_gfx -lSDL_mixer
 
-pile.o:pile.c pile.h
-	${CC} ${CFLAGS}  -c pile.c
 
-solvpile.o:solvpile.c solvpile.h pile.h
-	${CC} ${CFLAGS}  -c solvpile.c
-
-loop_game.o: loop_game.c loop_game.h grid_color.h
+loop_game.o: loop_game.c loop_game.h grid_color.h solveur_rapide.h
 	${CC} ${CFLAGS}  -c loop_game.c
 
-mainsolveur.o: mainsolveur.c solveur.h loop_game.h grid_color.h pile.h solvpile.h
-	${CC} ${CFLAGS}  -c mainsolveur.c
+main_jeu.o: main_jeu.c loop_game.h solveur_rapide.h
+	${CC} ${CFLAGS}  -c main_jeu.c
 
-solveur.o:solveur.c solveur.h grid_color.h pile.h solvpile.h
-	${CC} ${CFLAGS}  -c solveur.c
-
-exsolveur:solveur.o mainsolveur.o grid_color.o pile.o solvpile.o loop_game.o
+jeu: main_jeu.o loop_game.o grid_color.o solveur_rapide.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 
-unit_test.o:unit_test.c unit_test.h solveur.h pile.h solvpile.h grid_color.h
+solveur_rapide.o: solveur_rapide.c grid_color.h solveur_rapide.h
+	${CC} ${CFLAGS}  -c solveur_rapide.c
+
+exsolveur:solveur.o mainsolveur.o grid_color.o  loop_game.o
+	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
+
+unit_test.o:unit_test.c unit_test.h grid_color.h solveur_rapide.h
 	${CC} ${CFLAGS}  -c unit_test.c
 
-main_test.o: main_test.c unit_test.h solveur.h pile.h solvpile.h grid_color.h
+main_test.o: main_test.c unit_test.h grid_color.h solveur_rapide.h
 	${CC} ${CFLAGS}  -c main_test.c
 
-tests: main_test.o unit_test.o grid_color.o pile.o solvpile.o solveur.o
+tests: main_test.o unit_test.o grid_color.o solveur_rapide.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
 
 doc: Doxyfile
@@ -52,7 +48,7 @@ doc: Doxyfile
 valgrind:
 	valgrind --leak-check=yes ./tests
 	valgrind --leak-check=yes ./exsolveur
-	valgrind --leak-check=yes ./solveurSDL
+	valgrind --leak-check=yes ./ColorFlood
 
 clean:
 	rm *.o
