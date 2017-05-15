@@ -1,48 +1,52 @@
+
+
 CC=gcc
 CFLAGS=-std=c11 -Wall -Wextra -g
 LDFLAGS=-lm -lcunit
 
-all: tests solveurSDL jeu
+all: tests exsolveur solveurSDL
 
 
 grid_color.o: grid_color.c grid_color.h
 	${CC} ${CFLAGS} -c grid_color.c
-	
-SDL.o: SDL.c SDL.h grid_color.h
+
+SDL.o: SDL.c SDL.h grid_color.h  solveur_rapide.h
 	${CC} ${CFLAGS} -c SDL.c
 
-solveurSDL.o:solveurSDL.c SDL.h grid_color.o solveur_rapide.h 
+solveurSDL.o:solveurSDL.c SDL.h grid_color.o  solveur_rapide.h
 	${CC} ${CFLAGS} -c solveurSDL.c
 
-solveurSDL:grid_color.o SDL.o solveurSDL.o solveur_rapide.o
-	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS} -lSDL -lSDL_ttf
-	
+solveurSDL:grid_color.o SDL.o solveurSDL.o  solveur_rapide.o
+	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS} -lSDL -lSDL_ttf  -lSDL_gfx -lSDL_mixer
 
-loop_game.o: loop_game.c loop_game.h grid_color.h solveur_rapide.h 
+pile.o:pile.c pile.h
+	${CC} ${CFLAGS}  -c pile.c
+
+solvpile.o:solvpile.c solvpile.h pile.h
+	${CC} ${CFLAGS}  -c solvpile.c
+
+loop_game.o: loop_game.c loop_game.h grid_color.h
 	${CC} ${CFLAGS}  -c loop_game.c
 
-main_jeu.o: main_jeu.c loop_game.h solveur_rapide.h
-	${CC} ${CFLAGS}  -c main_jeu.c
+mainsolveur.o: mainsolveur.c solveur.h loop_game.h grid_color.h pile.h solvpile.h
+	${CC} ${CFLAGS}  -c mainsolveur.c
 
-jeu: main_jeu.o loop_game.o grid_color.o solveur_rapide.o
-	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
-
-solveur_rapide.o: solveur_rapide.c grid_color.h solveur_rapide.h
-	${CC} ${CFLAGS}  -c solveur_rapide.c
+solveur.o:solveur.c solveur.h grid_color.h pile.h solvpile.h
+	${CC} ${CFLAGS}  -c solveur.c
 
 exsolveur:solveur.o mainsolveur.o grid_color.o pile.o solvpile.o loop_game.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
-	
-unit_test.o:unit_test.c unit_test.h grid_color.h solveur_rapide.h
+
+unit_test.o:unit_test.c unit_test.h solveur.h pile.h solvpile.h grid_color.h
 	${CC} ${CFLAGS}  -c unit_test.c
-	
-main_test.o: main_test.c unit_test.h grid_color.h solveur_rapide.h
+
+main_test.o: main_test.c unit_test.h solveur.h pile.h solvpile.h grid_color.h
 	${CC} ${CFLAGS}  -c main_test.c
-	
-tests: main_test.o unit_test.o grid_color.o solveur_rapide.o
+
+tests: main_test.o unit_test.o grid_color.o pile.o solvpile.o solveur.o
 	${CC} ${CFLAGS} $^ -o $@ ${LDFLAGS}
-	
-doc: Doxyfile 
+
+doc: Doxyfile
 	doxygen Doxyfile
 
 valgrind:
