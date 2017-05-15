@@ -16,7 +16,7 @@
 * grille1, grille2, grille3 et grille4: Définissent des grilles utilisées pour les tets unitaires
 * SDL.c : Contient les fonctions de base pour le jeu en mode graphique
 * SDL.h : Contient les prototypes des fonctions de base pour le jeu en mode graphique
-* solveurSDL.c : 
+* ColorFlood.c : Contient le main pour exécuter le jeu en mode graphique
 * Doxyfile : Contient la configuration utilisée par Doxygen pour générer la documentation
 * Makefile : Permet de générer les exécutables et la documentation
 * resultat-valgrind: Contient les résultats de Valgrind pour les exécutables
@@ -27,7 +27,7 @@
 
 ### Instructions d'installation
 
-Pour la documentation doxygen:
+Pour la documentation Doxygen:
 
 `sudo apt-get install doxygen`
 
@@ -35,11 +35,11 @@ Pour les tests unitaires, la librairie CUnit est nécessaire:
 
 `sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev`
 
-Pour l'interface graphique SDL:
+Pour installer la biliothèque graphique SDL:
 
 `sudo apt-get install libsdl1.2-dev libsdl-gfx1.2-dev libsdl-ttf2.0-dev libfreeimage-dev`
 
-Pour installer la bibliothèque SDl_Mixer bibliothèque du son :
+Pour installer la bibliothèque du son SDl_Mixer:
 ```
 sudo apt-get install libsdl-mixer1.2
 sudo apt-get install libsdl-mixer1.2-dev
@@ -69,9 +69,11 @@ Pour nettoyer le répertoire:
 
 ### Instructions d'utilisation de l'application Color Flood en mode graphique
 
+Pour exécuter compiler et exécuter le jeu en mode graphique:
 
+`make ./ColorFlood`
 
-
+Une fois lancé dans le terminal, le menu d'accueil s'affiche avec trois options : taille de la grille, niveau de difficulté et une dernière option pour quitter, l'utilisateur utilise le clavier (les flèches haut et bas et droite et gauche pour se déplacer) on selectionne un choix en appuyant le bouton Entrer. La grille s'affiche avec plusieurs icônes de son , de solution, et la grille de jeu. A la fin d'une partie on appuie sur une touche du clavie pour sortir ou rejouer.
 
 ### Instructions de documentation
 
