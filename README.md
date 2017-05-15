@@ -73,7 +73,7 @@ Pour exécuter compiler et exécuter le jeu en mode graphique:
 
 `make ./ColorFlood`
 
-Une fois lancé dans le terminal, le menu d'accueil s'affiche avec trois options : taille de la grille, niveau de difficulté et une dernière option pour quitter, l'utilisateur utilise le clavier (les flèches haut et bas et droite et gauche pour se déplacer) on selectionne un choix en appuyant le bouton Entrer. La grille s'affiche avec plusieurs icônes de son , de solution, et la grille de jeu. A la fin d'une partie on appuie sur une touche du clavie pour sortir ou rejouer.
+Une fois lancé dans le terminal, le menu d'accueil s'affiche avec trois options : taille de la grille, niveau de difficulté et une dernière option pour quitter, l'utilisateur utilise le clavier (les flèches haut et bas et droite et gauche pour se déplacer) on selectionne un choix en appuyant le bouton Entrer. La grille s'affiche avec plusieurs icônes de son, de solution, et la grille de jeu. A la fin d'une partie on appuie sur une touche du clavier pour sortir ou rejouer.
 
 ### Instructions de documentation
 
