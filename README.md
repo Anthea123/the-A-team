@@ -21,8 +21,6 @@
 * Makefile : Permet de générer les exécutables et la documentation
 * resultat-valgrind: Contient les résultats de Valgrind pour les exécutables
 * Rapport_Lot_D.pdf : Rapport du Lot D
-* color_flood.gan : diagramme de Gantt du projet fait avec le logiciel GanttProject
-* gantt_ressources.png et gantt_tâches.png : impression diagramme de Gantt des tâches et des ressources si on n'utilise pas le même logiciel Gantt
 
 
 ### Instructions d'installation
@@ -59,10 +57,6 @@ Pour tester l'absence de fuites de mémoire (Valgrind)
 
 `valgrind ./tests`
 
-Pour générer la documentation (Doxygen):
-
-`doxygen Doxyfile `
-
 Pour nettoyer le répertoire:
 
 `make clean`
@@ -80,3 +74,7 @@ Une fois lancé dans le terminal, le menu d'accueil s'affiche avec trois options
 Tous les commentaires au format doxygen sont mis dans les headers pour éviter la duplication dans la documentation
 D'autres commentaires normaux sont inclus dans les fichiers sources
 Toutes les fonctions et leurs conceptions sont détaillées dans le rapport 
+
+Pour générer la documentation (Doxygen):
+
+`doxygen Doxyfile `
