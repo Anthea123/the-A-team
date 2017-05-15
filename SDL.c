@@ -10,10 +10,33 @@
  compilation sur Mac : gcc -o exSDL -I/Library/Frameworks/SDL.framework/Headers  exSDL.c SDLmain.m -framework SDL -framework Cocoa
 */
 
+void initialise(){
+	const SDL_VideoInfo* info = NULL;
+  /*initialization video */
+	if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
+		/* Failed, exit. */
+		fprintf( stderr, "Video initialization failed: %s\n", SDL_GetError( ) );
+		SDL_Quit( );
+	}
+  /*initialisation TTF */
+	if(TTF_Init() == -1){
+		fprintf(stderr, "Erreur d'initialisation de TTF_Init : %s\n", TTF_GetError());
+		exit(EXIT_FAILURE);
+  	}
+  info = SDL_GetVideoInfo( );
+	if( !info ) {
+		/* This should probably never happen. */
+		fprintf( stderr, "Video query failed: %s\n", SDL_GetError( ) );
+		SDL_Quit( );
+  }
+  /*Initialisation de l'API Mixer*/
+  if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1) {
+    printf("%s", Mix_GetError());
+  }
+}
 // px, py coordonnées haut, gauche du pixel
 void drawRectangle(SDL_Surface *ecran, int px, int py, int size, int r, int g, int b) {
     SDL_Rect rect;
-
     rect.x=px;
     rect.y=py;
     rect.h=rect.w=size;
@@ -52,14 +75,13 @@ void drawcolor(SDL_Surface *ecran,int px,int py,double size,char c){
     default:
             break;
     }
-    SDL_Flip(ecran);
-    SDL_FreeSurface(green);
-    SDL_FreeSurface(blue);
-    SDL_FreeSurface(red);
-    SDL_FreeSurface(yellow);
-    SDL_FreeSurface(purple);
-    SDL_FreeSurface(grey);
-
+  SDL_Flip(ecran);
+  SDL_FreeSurface(green);
+  SDL_FreeSurface(blue);
+  SDL_FreeSurface(red);
+  SDL_FreeSurface(yellow);
+  SDL_FreeSurface(purple);
+  SDL_FreeSurface(grey);
 }
 
 void printgrille(SDL_Surface *ecran,grid g){
@@ -205,35 +227,7 @@ void afficherMenu(SDL_Surface *ecran,int size){
   SDL_FreeSurface(menu3);
 }
 
-void initialise(){
-	const SDL_VideoInfo* info = NULL;
 
-	if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
-		/* Failed, exit. */
-		fprintf( stderr, "Video initialization failed: %s\n", SDL_GetError( ) );
-		SDL_Quit( );
-	}
-
-	if(TTF_Init() == -1){
-		fprintf(stderr, "Erreur d'initialisation de TTF_Init : %s\n", TTF_GetError());
-		exit(EXIT_FAILURE);
-  	}
-
-	info = SDL_GetVideoInfo( );
-
-	if( !info ) {
-		/* This should probably never happen. */
-		fprintf( stderr, "Video query failed: %s\n", SDL_GetError( ) );
-		SDL_Quit( );
-  	}
-    if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1) //Initialisation de l'API Mixer
-
-{
-
-   printf("%s", Mix_GetError());
-
-}
-}
 
 void dessinerfleche(SDL_Surface *ecran,int fleche){
 	switch(fleche%3){
@@ -376,12 +370,10 @@ int surfer_menu(SDL_Surface *ecran,int *niveau,int *size){
   drawRectangle(ecran,10,300,10,255,255,255);
   SDL_Flip(ecran);
 
-  while(compteur)
-{
- touche.button.button=0;
- SDL_WaitEvent(&touche);
- {switch(touche.type)
-   {
+  while(compteur){
+  touche.button.button=0;
+  SDL_WaitEvent(&touche);
+  switch(touche.type){
      case SDL_QUIT: return 0;
      case SDL_KEYDOWN: ///Si une touche à été appuyée
         switch(touche.key.keysym.sym){
@@ -437,13 +429,13 @@ int surfer_menu(SDL_Surface *ecran,int *niveau,int *size){
            default : ;
          }
      default : ;
-   }
- }
-}
-fillScreen(ecran,255,255, 255);
-Mix_FreeMusic(musique);//Libération de la musique
-SDL_FreeSurface(ecran);
-return 0;
+      }
+    }
+  }
+  fillScreen(ecran,255,255, 255);
+  Mix_FreeMusic(musique);//Libération de la musique
+  SDL_FreeSurface(ecran);
+  return 0;
 }
 
 
@@ -474,8 +466,6 @@ int loop_game(SDL_Surface *ecran,int size,int niveau){
   SDL_BlitSurface(texte, NULL, ecran,&position);
   SDL_Flip(ecran);
   SDL_Flip(ecran);
-
-
 
   int continuer=1;
   while (continuer && !test_same_colour(&g) && nbcoups!=0 ){
@@ -521,30 +511,32 @@ int loop_game(SDL_Surface *ecran,int size,int niveau){
               SDL_BlitSurface(texte, NULL, ecran,&position);
               SDL_Flip(ecran);
             }
-            if(event.button.x<150 && event.button.x>20 && event.button.y>800 ){
-              printsolution(ecran,g);
-            }
-            if(event.button.x>500 && event.button.x<600 && event.button.y<80){
-              continuer=0;
-            }
+            if(event.button.x<150 && event.button.x>20 && event.button.y>800 ) printsolution(ecran,g);
+            if(event.button.x>500 && event.button.x<600 && event.button.y<80) continuer=0;
           }
-        }
-  }
-  if(test_same_colour(&g)) {fillScreen(ecran,255,255,255);printgrille(ecran,g);if(finjeu(ecran,police,0,nbr_mvm)){
-    free_grid(&g);
-    free_grid(&copieg);
-    return 1;};}
-  if(nbcoups==0 && !test_same_colour(&g)){fillScreen(ecran, 255,255,255);printgrille(ecran,g);if(finjeu(ecran,police,1,nbr_mvm)){
-    free_grid(&g);
-    free_grid(&copieg);
-    return 1;};}
-    free_grid(&g);
-    free_grid(&copieg);
-    Mix_FreeMusic(musique); //Libération de la musique
-    Mix_CloseAudio(); //Fermeture de l'API
-    SDL_FreeSurface(ecran);
-    TTF_Quit();
-
+      }
+    }
+    if(test_same_colour(&g)) {
+      fillScreen(ecran,255,255,255);printgrille(ecran,g);if(finjeu(ecran,police,0,nbr_mvm)){
+      free_grid(&g);
+      free_grid(&copieg);
+      return 1;
+      }
+    }
+    if(nbcoups==0 && !test_same_colour(&g)){
+      fillScreen(ecran, 255,255,255);
+      printgrille(ecran,g);
+      if(finjeu(ecran,police,1,nbr_mvm)){
+        free_grid(&g);
+        free_grid(&copieg);
+        return 1;
+      }
+    }
+  free_grid(&g);
+  free_grid(&copieg);
+  Mix_FreeMusic(musique); //Libération de la musique
+  Mix_CloseAudio(); //Fermeture de l'API
+  SDL_FreeSurface(ecran);
+  TTF_Quit();
   return 0;
-
 }

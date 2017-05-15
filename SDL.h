@@ -22,7 +22,12 @@
 #include "pile.h"
 #include "solveur_rapide.h"
 
-
+/**
+*	\fn void initialise()
+*	\brief permet d'initialiser video responsable pour l'interface graphique et TTF responsable des polices(ecriture)
+*	\return void c'est une fonction de type void
+*/
+void initialise();
 /**
 *	\fn drawRectangle(SDL_Surface *ecran, int px, int py, int size, int r, int g, int b)
 *	\brief permet de tracer un rectangle sur l'ecran dans les coordonnes (px,py) d'un taille de size avec le systeme de couleurs {RGB}
@@ -77,13 +82,6 @@ void jouer(SDL_Surface *ecran,grid g,char c);
 *	\return void c'est une fonction de type void
 */
 void afficherMenu(SDL_Surface *ecran,int size);
-
-/**
-*	\fn void initialise()
-*	\brief permet d'initialiser video responsable pour l'interface graphique et TTF responsable des polices(ecriture)
-*	\return void c'est une fonction de type void
-*/
-void initialise();
 /**
 *	\fn dessinerfleche(SDL_Surface *ecran,int fleche)
 *	\brief permet d'afficher la flèche pour surfer dans le menu et choisir les options de jeu en appuyant sur un entier fleche
